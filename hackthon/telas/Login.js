@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Button , View , ScrollView, Text, SafeAreaView,TextInput} from 'react-native';  
 
 const styles = {
@@ -19,16 +20,7 @@ function Login(props) {
 
   const [Login,   setLogin] = React.useState("");
   const [Senha,   setSenha] = React.useState("");
-  
-  const loginChange = e => {
-    setLogin(e.target.value);
-  };
-  const senhaChange = e => {
-    setSenha(e.target.value);
-  };
-  const Change = () => {
-    console.log('OK');
-  };
+    
   return (
     <>
     
@@ -50,7 +42,7 @@ function Login(props) {
               style={styles.input}
               onChangeText={setSenha}
               value={Senha}
-              placeholder="useless placeholder"
+              placeholder="placeholder"
               secureTextEntry={true}
               textContentType="password"
             />
@@ -68,6 +60,7 @@ function Login(props) {
         </Text>
       </ScrollView>
     </>
+
   );
 }
 
