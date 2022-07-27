@@ -1,6 +1,7 @@
 import { Button , View , ScrollView, Text, SafeAreaView,TextInput} from 'react-native';  
 
 
+
 const styles = {
     header : {alignItems: 'center',justifyContent: 'center',backgroundColor: 'aquamarine',display:'flex' },
     tituloh1 : {fontSize: 30},
@@ -32,6 +33,8 @@ function LoginOuRegis(props) {
     const { route,navigation } = props
     const params = route.params
     const tipo = params.tipo
+
+
     console.log(tipo)
     console.log(tipo === 0) 
     return (

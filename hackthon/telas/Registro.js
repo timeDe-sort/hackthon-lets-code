@@ -1,6 +1,8 @@
 import React from 'react';
-
+import { Checkbox } from 'react-native-paper';
 import { Button , View , ScrollView, Text, SafeAreaView,TextInput} from 'react-native';  
+import DropDownPicker from 'react-native-dropdown-picker';
+
 
 const styles = {
     borda : {border: '1px solid black'},
@@ -21,14 +23,41 @@ const styles = {
         marginLeft : "20%",
         marginTop : "0.5rem",
         marginBottom : "0.5rem"
-    },
-    Buttons : {
-        
-    }
-
-  
+    },      
 }
 
+
+
+const Estados = [
+
+    {label : "Acre" , value : "AC"},
+    {label : "AL" , value : "AL"},
+    {label : "AP" , value : "AP"},
+    {label : "AM" , value : "AM"},
+    {label : "BA" , value : "BA"},
+    {label : "CE" , value : "CE"},
+    {label : "DF" , value : "DF"},
+    {label : "ES" , value : "ES"},
+    {label : "GO" , value : "GO"},
+    {label : "MA" , value : "MA"},
+    {label : "MT" , value : "MT"},
+    {label : "MS" , value : "MS"},
+    {label : "MG" , value : "MG"},
+    {label : "PA" , value : "PA"},
+    {label : "PB" , value : "PB"},
+    {label : "PR" , value : "PR"},
+    {label : "PE" , value : "PE"},
+    {label : "PI" , value : "PI"},
+    {label : "RJ" , value : "RJ"},
+    {label : "RN" , value : "RN"},
+    {label : "RS" , value : "RS"},
+    {label : "RO" , value : "RO"},
+    {label : "RR" , value : "RR"},
+    {label : "SC" , value : "SC"},
+    {label : "SP" , value : "SP"},
+    {label : "SE" , value : "SE"},
+    {label : "TO" , value : "TO"},
+]
 function Registrar(props) {
 
     const { route,navigation } = props
@@ -51,6 +80,31 @@ function Registrar(props) {
     const [Mae,   setMae] = React.useState("");
     const [Codigo,   setCodigo] = React.useState("");
 
+    const [open, setOpen] = React.useState(false);
+    const [value, setValue] = React.useState(null);
+    const [items, setItems] = React.useState(Estados);
+    const [Financeira, setFinanceira] = React.useState(false);
+    const [Material, setMaterial] = React.useState(false);
+
+    function Finalizar(){
+        navigation.navigate('TelaInicial')
+        setNome("")
+        setCEP("")
+        setCPF("")
+        setIdade("")
+        setCidade("")
+        setObservacao("")
+        setProfissao("")
+        setEmail("")
+        setSenha("")
+        setUniversidade("")
+        setDisciplina("")
+        setEscola("")
+        setSerie("")
+        setMae("")
+        setCodigo("")
+
+    }
     return (
         <>
 
@@ -115,12 +169,22 @@ function Registrar(props) {
                             />
                         </View>
 
-                        <View>
-                            <Text >UF:</Text>
-                            <TextInput
-                            style={styles.borda}
-                            />
-                        </View>
+                        <Text >UF:</Text>
+                        <DropDownPicker
+                        open={open}
+                        value={value}
+                        items={items}
+                        setOpen={setOpen}
+                        setValue={setValue}
+                        setItems={setItems}
+                        searchable={true}
+                        searchTextInputProps={{
+                            maxLength: 25
+                        }}
+                        containerStyle={{
+                            width: "20%",
+                        }}
+                        />
 
                         <View>
                             <Text >Observação:</Text>
@@ -141,10 +205,21 @@ function Registrar(props) {
                                 value={Profissao}
                                 />
                             </View>
-                            <View>
-                                <Text >Categoria de Ajuda:</Text>
-                                <TextInput
-                                style={styles.borda}
+                            <View style={{flexDirection: "row"}}>
+                                <Text >Categoria de Ajuda: </Text>
+                                <Text>   Financeira</Text>
+                                <Checkbox
+                                status={Financeira ? 'checked' : 'unchecked'}
+                                onPress={() => {
+                                    setFinanceira(!Financeira);
+                                }}
+                                />
+                                <Text>Material</Text>
+                                <Checkbox
+                                status={Material ? 'checked' : 'unchecked'}
+                                onPress={() => {
+                                    setMaterial(!Material);
+                                }}
                                 />
                             </View>
                         </View>}
@@ -242,7 +317,7 @@ function Registrar(props) {
 
 
                 <View style={styles.BoxButtons}>
-                <Button title="Finalizar" onPress={() => navigation.navigate('TelaInicial')} />
+                <Button title="Finalizar" onPress={Finalizar} />
                 </View>
             
                 <Text style={styles.header}> 
@@ -257,3 +332,6 @@ function Registrar(props) {
 }
 
 export default Registrar;
+
+
+
