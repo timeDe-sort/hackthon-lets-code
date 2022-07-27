@@ -6,7 +6,9 @@ import { Button , View , ScrollView, Text, SafeAreaView,TextInput} from 'react-n
 function LoginOuRegis(props) {
     const { route,navigation } = props
     const params = route.params
-    console.log(params)
+    const tipo = params.tipo
+    console.log(tipo)
+    console.log(tipo === 0) 
     return (
         <>
 
@@ -17,10 +19,13 @@ function LoginOuRegis(props) {
 
             <View>
 
-            <Button title= "Login" onPress={() => navigation.navigate('' , {info : 0})} />
+            <Button title= "Login" onPress={() => navigation.navigate('Login' , {tipo : tipo})} />
 
-            <Button title= "Registrar" onPress={() => navigation.navigate('Registrar', {info : 1})} />
-
+            {
+             (tipo != 2) ?
+             <Button title= "Registrar" onPress={() => navigation.navigate('Registrar', {tipo : tipo})} /> :
+             <Button title= "Registrar" onPress={() => navigation.navigate('RegistrarCentro', {tipo : tipo})} />
+            }
 
 
             </View>

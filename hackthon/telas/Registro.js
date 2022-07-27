@@ -29,6 +29,7 @@ function Registrar(props) {
                 <SafeAreaView>
 
                     <View >
+                        {/* COMUM A TODOS */}
                         <View>
                             <Text >Nome:</Text>
                             <TextInput
@@ -40,6 +41,15 @@ function Registrar(props) {
 
                         <View>
                             <Text >CPF:</Text>
+                            <TextInput
+                            style={styles.borda}
+                            onChangeText={setEmail}
+                            value={Email}
+                            />
+                        </View>
+
+                        <View>
+                            <Text >idade:</Text>
                             <TextInput
                             style={styles.borda}
                             onChangeText={setEmail}
@@ -65,45 +75,17 @@ function Registrar(props) {
                             />
                         </View>
 
-                        {(params.info===0) &  // DOADOR
                         <View>
-                            <Text >Profissão:</Text>
+                            <Text >Cidade:</Text>
                             <TextInput
                             style={styles.borda}
                             onChangeText={setEmail}
                             value={Email}
                             />
-                        </View> & 
-                        <View>
-                            <Text >Categoria de Ajuda:</Text>
-                            <TextInput
-                            style={styles.borda}
-                            onChangeText={setEmail}
-                            value={Email}
-                            />
-                        </View>}
-
-                        {(params.info===1) &   // UNIVERSITÁRIO
-                        <View>
-                            <Text >Universidade:</Text>
-                            <TextInput
-                            style={styles.borda}
-                            onChangeText={setUniversidade}
-                            value={Universidade}
-                            />
-                        </View> & 
-                        <View>
-                            <Text >Disciplina:</Text>
-                            <TextInput
-                            style={styles.borda}
-                            onChangeText={setDisciplina}
-                            value={Disciplina}
-                            />
-                        </View>}
-
+                        </View>
 
                         <View>
-                            <Text >Login:</Text>
+                            <Text >UF:</Text>
                             <TextInput
                             style={styles.borda}
                             onChangeText={setEmail}
@@ -120,6 +102,98 @@ function Registrar(props) {
                             />
                         </View>
 
+                        {(params.tipo === 0) && // DOADOR
+                        <View>  
+                            <View>
+                                <Text >Profissão:</Text>
+                                <TextInput
+                                style={styles.borda}
+                                onChangeText={setEmail}
+                                value={Email}
+                                />
+                            </View>
+                            <View>
+                                <Text >Categoria de Ajuda:</Text>
+                                <TextInput
+                                style={styles.borda}
+                                onChangeText={setEmail}
+                                value={Email}
+                                />
+                            </View>
+                        </View>}
+
+                        {(params.tipo===1) && // UNIVERSITÁRIO
+                        <View>    
+                            <View>
+                                <Text >Universidade:</Text>
+                                <TextInput
+                                style={styles.borda}
+                                onChangeText={setUniversidade}
+                                value={Universidade}
+                                />
+                            </View>
+                            <View>
+                                <Text >Disciplina oferecida:</Text>
+                                <TextInput
+                                style={styles.borda}
+                                onChangeText={setDisciplina}
+                                value={Disciplina}
+                                />
+                            </View>
+                            <View>
+                                <Text >Período:</Text>
+                                <TextInput
+                                style={styles.borda}
+                                onChangeText={setDisciplina}
+                                value={Disciplina}
+                                />
+                            </View>
+                        </View>}
+
+                        {(params.tipo===3) && // ALUNO
+                        <View>
+                            <View>
+                            <Text >Escola:</Text>
+                            <TextInput
+                            style={styles.borda}
+                            onChangeText={setUniversidade}
+                            value={Universidade}
+                            />
+                            </View> 
+                            <View>
+                            <Text >Ano:</Text>
+                            <TextInput
+                            style={styles.borda}
+                            onChangeText={setUniversidade}
+                            value={Universidade}
+                            />
+                            </View> 
+                            <View>
+                            <Text >Período:</Text>
+                            <TextInput
+                            style={styles.borda}
+                            onChangeText={setUniversidade}
+                            value={Universidade}
+                            />
+                            </View> 
+                            <View>
+                            <Text >Nome da Mãe:</Text>
+                            <TextInput
+                            style={styles.borda}
+                            onChangeText={setUniversidade}
+                            value={Universidade}
+                            />
+                            </View> 
+                            <View>
+                            <Text >Código familiar:</Text>
+                            <TextInput
+                            style={styles.borda}
+                            onChangeText={setUniversidade}
+                            value={Universidade}
+                            />
+                            </View>
+                        </View>
+                        }
                         <View>
                             <Text >Email:</Text>
                             <TextInput
@@ -135,22 +209,24 @@ function Registrar(props) {
                             onChangeText={setSenha}
                             style={styles.borda}
                             value={Senha}
-                            placeholder="placeholder"
                             secureTextEntry={true}
                             textContentType="password"
                             />
                         </View>
+
                     </View>
                 </SafeAreaView>
 
 
-                <Button title="Entrar"onPress={() => navigation.navigate('TelaInicial')} />
+                <Button title="Finalizar" onPress={() => navigation.navigate('TelaInicial')} />
 
             
-                <Text>
+                <Text> 
                     Referências
                 </Text>
             </ScrollView>
+
+
         </>
 
   );
