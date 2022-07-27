@@ -30,7 +30,7 @@ const styles = {
 
 const Estados = [
 
-    {label : "Acre" , value : "AC"},
+    {label : "AC" , value : "AC"},
     {label : "AL" , value : "AL"},
     {label : "AP" , value : "AP"},
     {label : "AM" , value : "AM"},
@@ -85,6 +85,10 @@ function Registrar(props) {
     const [items, setItems] = React.useState(Estados);
     const [Financeira, setFinanceira] = React.useState(false);
     const [Material, setMaterial] = React.useState(false);
+    const [Matutino, setMatutino] = React.useState(false);
+    const [Vespertino, setVespertino] = React.useState(false);
+    const [Noturno, setNoturno] = React.useState(false);
+
 
     function Finalizar(){
         navigation.navigate('TelaInicial')
@@ -242,10 +246,28 @@ function Registrar(props) {
                                 value={Disciplina}
                                 />
                             </View>
-                            <View>
+                            <View style={{flexDirection: "row"}}>
                                 <Text >Período:</Text>
-                                <TextInput
-                                style={styles.borda}
+                                <Text>   Matutino</Text>
+                                <Checkbox
+                                status={Matutino ? 'checked' : 'unchecked'}
+                                onPress={() => {
+                                    setMatutino(!Matutino);
+                                }}
+                                />
+                                <Text>Vespertino</Text>
+                                <Checkbox
+                                status={Vespertino ? 'checked' : 'unchecked'}
+                                onPress={() => {
+                                    setVespertino(!Vespertino);
+                                }}
+                                />
+                                <Text>Noturno</Text>
+                                <Checkbox
+                                status={Noturno ? 'checked' : 'unchecked'}
+                                onPress={() => {
+                                    setNoturno(!Noturno);
+                                }}
                                 />
                             </View>
                         </View>}
@@ -260,6 +282,7 @@ function Registrar(props) {
                             value={Escola}
                             />
                             </View> 
+
                             <View>
                             <Text >Ano:</Text>
                             <TextInput
@@ -267,13 +290,51 @@ function Registrar(props) {
                             onChangeText={setSerie}
                             value={Serie}
                             />
+                            </View>
+
+                            <View style={{flexDirection: "row"}}>
+                                <Text >Categoria de Ajuda: </Text>
+                                <Text>   Financeira</Text>
+                                <Checkbox
+                                status={Financeira ? 'checked' : 'unchecked'}
+                                onPress={() => {
+                                    setFinanceira(!Financeira);
+                                }}
+                                />
+                                <Text>Material</Text>
+                                <Checkbox
+                                status={Material ? 'checked' : 'unchecked'}
+                                onPress={() => {
+                                    setMaterial(!Material);
+                                }}
+                                />
+                            </View>
+
+                            <View style={{flexDirection: "row"}}>
+                                <Text >Período:</Text>
+                                <Text>   Matutino</Text>
+                                <Checkbox
+                                status={Matutino ? 'checked' : 'unchecked'}
+                                onPress={() => {
+                                    setMatutino(!Matutino);
+                                }}
+                                />
+                                <Text>Vespertino</Text>
+                                <Checkbox
+                                status={Vespertino ? 'checked' : 'unchecked'}
+                                onPress={() => {
+                                    setVespertino(!Vespertino);
+                                }}
+                                />
+                                <Text>Noturno</Text>
+                                <Checkbox
+                                status={Noturno ? 'checked' : 'unchecked'}
+                                onPress={() => {
+                                    setNoturno(!Noturno);
+                                }}
+                                />
                             </View> 
-                            <View>
-                            <Text >Período:</Text>
-                            <TextInput
-                            style={styles.borda}
-                            />
-                            </View> 
+
                             <View>
                             <Text >Nome da Mãe:</Text>
                             <TextInput
@@ -282,6 +343,7 @@ function Registrar(props) {
                             value={Mae}
                             />
                             </View> 
+
                             <View>
                             <Text >Código familiar:</Text>
                             <TextInput
