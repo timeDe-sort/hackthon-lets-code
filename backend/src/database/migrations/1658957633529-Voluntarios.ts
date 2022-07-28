@@ -56,7 +56,8 @@ export class Voluntarios1658957633529 implements MigrationInterface {
                     {
                         name: 'email',
                         type: 'varchar',
-                        isNullable: false
+                        isNullable: false,
+                        isUnique: true
                     },
                     {
                         name: 'senha',

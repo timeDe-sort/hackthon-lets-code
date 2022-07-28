@@ -51,7 +51,8 @@ export class Estudantes1658957579341 implements MigrationInterface {
                     {
                         name: 'email',
                         type: 'varchar',
-                        isNullable: false
+                        isNullable: false,
+                        isUnique: true
                     },
                     {
                         name: 'senha',

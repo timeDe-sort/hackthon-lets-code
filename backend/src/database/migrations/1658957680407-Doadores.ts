@@ -23,7 +23,8 @@ export class Doadores1658957680407 implements MigrationInterface {
                     },
                     {
                         name: 'email',
-                        type: 'varchar'
+                        type: 'varchar',
+                        isUnique: true
                     },
                     {
                         name: 'senha',

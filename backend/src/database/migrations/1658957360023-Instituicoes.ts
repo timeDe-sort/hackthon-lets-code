@@ -27,7 +27,8 @@ export class Instituicoes1658957360023 implements MigrationInterface {
                     {
                         name: 'email',
                         type: 'varchar',
-                        isNullable: false
+                        isNullable: false,
+                        isUnique: true
                     },
                     {
                         name: 'senha',
