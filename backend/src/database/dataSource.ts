@@ -8,6 +8,7 @@ const AppDataSource = new DataSource({
     password: 'admin',
     database: 'hackathontimedesort',
     migrations: ['src/database/migrations/*.ts'],
+    entities: ['src/entities/*.ts']
 })
 
 export default AppDataSource;
