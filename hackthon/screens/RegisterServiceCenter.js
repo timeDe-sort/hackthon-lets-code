@@ -1,25 +1,29 @@
 import React from 'react';
-
+import DistrictDropdown from './form-components/DistrictsDropdownComponent';
 import { Button , View , ScrollView, Text, SafeAreaView,TextInput} from 'react-native';  
 
 const styles = {
-    borda : {border: '1px solid black'}
+    borderSettings : {border: '1px solid black'}
 }
 
-function RegistrarCentro(props) {
+function RegisterServiceCenter(props) {
 
-    const { route,navigation } = props
+    const { route, navigation } = props
     const params = route.params
     console.log(params)
 
-    const [Email,   setEmail] = React.useState("");
-    const [Senha,   setSenha] = React.useState("");
-    const [Nome,   setNome] = React.useState("");
+    const [email, setEmail] = React.useState("");
+    const [password, setPassword] = React.useState("");
+    const [name, setName] = React.useState("");
+    const [cnpj, setCnpj] = React.useState("");
+    const [address, setAddress] = React.useState("");
+    const [district, setDistrict] = React.useState("");
+    const [cep, setCep] = React.useState("");
+    const [city, setCity] = React.useState("");
+
 
     return (
         <>
-
-        
             <ScrollView>
                 <Text > 
                     <Text >Nome do Aplicativo</Text>
@@ -31,94 +35,77 @@ function RegistrarCentro(props) {
                         <View>
                             <Text >Nome da Instituição:</Text>
                             <TextInput
-                            style={styles.borda}
-                            onChangeText={setNome}
-                            value={Nome}
+                            style={styles.borderSettings}
+                            onChangeText={setName}
+                            value={name}
                             />
                         </View>
-
                         <View>
                             <Text >CNPJ:</Text>
                             <TextInput
-                            style={styles.borda}
-                            onChangeText={setEmail}
-                            value={Email}
+                            style={styles.borderSettings}
+                            onChangeText={setCnpj}
+                            value={cnpj}
                             />
                         </View>
-
                         <View>
                             <Text >Endereço:</Text>
                             <TextInput
-                            style={styles.borda}
-                            onChangeText={setEmail}
-                            value={Email}
+                            style={styles.borderSettings}
+                            onChangeText={setAddress}
+                            value={address}
                             />
                         </View>
-
                         <View>
                             <Text >Bairro:</Text>
                             <TextInput
-                            style={styles.borda}
-                            onChangeText={setEmail}
-                            value={Email}
+                            style={styles.borderSettings}
+                            onChangeText={setDistrict}
+                            value={district}
                             />
                         </View>
-
                         <View>
                             <Text >CEP:</Text>
                             <TextInput
-                            style={styles.borda}
-                            onChangeText={setEmail}
-                            value={Email}
+                            style={styles.borderSettings}
+                            onChangeText={setCep}
+                            value={cep}
                             />
                         </View>
-
                         <View>
                             <Text >Cidade:</Text>
                             <TextInput
-                            style={styles.borda}
-                            onChangeText={setEmail}
-                            value={Email}
+                            style={styles.borderSettings}
+                            onChangeText={setCity}
+                            value={city}
                             />
                         </View>
-
                         <View>
-                            <Text >UF:</Text>
-                            <TextInput
-                            style={styles.borda}
-                            onChangeText={setEmail}
-                            value={Email}
-                            />
+                            <DistrictDropdown></DistrictDropdown>
                         </View>
-
-
                         <View>
                             <Text >Email:</Text>
                             <TextInput
-                            style={styles.borda}
+                            style={styles.borderSettings}
                             onChangeText={setEmail}
-                            value={Email}
+                            value={email}
                             />
                         </View>
-
                         <View>
                             <Text>Senha:</Text>
                             <TextInput
-                            onChangeText={setSenha}
-                            style={styles.borda}
-                            value={Senha}
+                            onChangeText={setPassword}
+                            style={styles.borderSettings}
+                            value={password}
                             secureTextEntry={true}
                             textContentType="password"
                             />
                         </View>
-
                     </View>
                 </SafeAreaView>
 
+                <Button title="Finalizar" onPress={() => navigation.navigate('HomeScreen')} />
 
-                <Button title="Finalizar" onPress={() => navigation.navigate('TelaInicial')} />
-
-            
                 <Text> 
                     Referências
                 </Text>
@@ -130,4 +117,4 @@ function RegistrarCentro(props) {
   );
 }
 
-export default RegistrarCentro;
+export default RegisterServiceCenter;

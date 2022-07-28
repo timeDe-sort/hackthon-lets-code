@@ -1,7 +1,7 @@
-
 import { Text } from 'react-native'
 
-function TelaInicial(props) {
+
+function HomeScreen(props) {
 
     return (
         <>
@@ -15,6 +15,4 @@ function TelaInicial(props) {
 }
 
 
-
-
-export default TelaInicial;
+export default HomeScreen;
