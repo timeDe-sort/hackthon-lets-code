@@ -2,18 +2,30 @@ import * as React from 'react';
 import { Button, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Login from './telas/Login';
-import TelaInicial from './telas/TelaInicial';
+
+import Login from './screens/Login';
+import HomeScreen from './screens/HomeScreen';
+import SelectRole from './screens/SelectRole';
+import LoginOrRegister from './screens/LoginOrRegister';
+import RegisterUser from './screens/RegisterUser';
+import RegisterServiceCenter from './screens/RegisterServiceCenter';
+import Profile from './screens/Profile';
+import LoogedScreen from './screens/LoggedScreen';
 
 
 const Stack = createStackNavigator();
 
 function MyStack() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Tela de Login" component={Login} />
-      <Stack.Screen name="TelaInicial" component={TelaInicial} />
-      
+    <Stack.Navigator initialRouteName='SelectRole'>
+      <Stack.Screen name="SelectRole" component={SelectRole} />
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="LoginOrRegister" component={LoginOrRegister} />
+      <Stack.Screen name="RegisterUser" component={RegisterUser} />
+      <Stack.Screen name="RegisterServiceCenter" component={RegisterServiceCenter} />
+      <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name="LoogedScreen" component={LoogedScreen} />
 
     </Stack.Navigator>
   );
@@ -22,7 +34,9 @@ function MyStack() {
 export default function App() {
   return (
     <NavigationContainer>
+
       <MyStack />
+      
     </NavigationContainer>
   );
 }
