@@ -32,15 +32,24 @@ export class Estudante {
 
   @ManyToOne(() => Instituicao)
   @JoinColumn({ name: 'instituicao_id' })
-  instituicao_id: Instituicao;
+  instituicao: Instituicao;
+
+  @Column()
+  instituicao_id: string;
 
   @ManyToOne(() => Periodo)
   @JoinColumn({ name: 'periodo_id' })
-  periodo_id = Periodo;
+  periodo: Periodo;
+
+  @Column()
+  periodo_id: string;
 
   @ManyToOne(() => Serie)
   @JoinColumn({ name: 'serie_id' })
-  serie_id = Serie;
+  serie: Serie;
+
+  @Column()
+  serie_id: string;
   
   constructor() {
     if (!this.estudante_id) {
