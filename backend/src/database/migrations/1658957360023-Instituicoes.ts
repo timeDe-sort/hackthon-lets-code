@@ -21,7 +21,8 @@ export class Instituicoes1658957360023 implements MigrationInterface {
                     {
                         name: 'cnpj',
                         type: 'char(14)',
-                        isNullable: false
+                        isNullable: false,
+                        isUnique: true
                     },
                     {
                         name: 'email',

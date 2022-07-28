@@ -14,11 +14,13 @@ export class Estados1658957160023 implements MigrationInterface {
                     },
                     {
                         name: 'estado_nome',
-                        type: 'varchar'
+                        type: 'varchar,',
+                        isUnique: true
                     },
                     {
                         name: 'uf',
-                        type: 'char(2)'
+                        type: 'char(2)',
+                        isUnique: true
                     }
                 ]
             })

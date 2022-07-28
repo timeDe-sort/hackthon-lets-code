@@ -66,7 +66,8 @@ export class Voluntarios1658957633529 implements MigrationInterface {
                     {
                         name: 'cpf',
                         type: 'char',
-                        isNullable: false
+                        isNullable: false,
+                        isUnique: true
                     }
                 ],
                 foreignKeys: [

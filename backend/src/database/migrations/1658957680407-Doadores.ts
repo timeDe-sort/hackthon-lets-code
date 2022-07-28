@@ -19,6 +19,7 @@ export class Doadores1658957680407 implements MigrationInterface {
                     {
                         name: 'documento',
                         type: 'varchar',
+                        isUnique: true
                     },
                     {
                         name: 'email',

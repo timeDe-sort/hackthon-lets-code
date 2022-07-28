@@ -61,7 +61,8 @@ export class Estudantes1658957579341 implements MigrationInterface {
                     {
                         name: 'cpf',
                         type: 'char(11)',
-                        isNullable: false
+                        isNullable: false,
+                        isUnique: true
                     }
                 ],
                 foreignKeys: [
