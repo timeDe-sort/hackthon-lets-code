@@ -1,26 +1,26 @@
 import { Entity, Column, PrimaryColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 
-@Entity('doador')
-export class Doador {
+@Entity('donator')
+export class Donator {
   @PrimaryColumn()
-  doador_id: string;
+  donator_id: string;
 
   @Column()
-  doador_nome: string;
+  donator_name: string;
 
   @Column()
-  documento: string;
+  document: string;
 
   @Column()
   email: string;
 
   @Column()
-  senha: string;
+  password: string;
   
   constructor() {
-    if (!this.doador_id) {
-      this.doador_id = uuid();
+    if (!this.donator_id) {
+      this.donator_id = uuid();
     }
   }
 }

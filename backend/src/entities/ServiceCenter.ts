@@ -1,13 +1,13 @@
 import { Entity, Column, PrimaryColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 
-@Entity('instituicoes')
-export class Instituicao {
+@Entity('service_centers')
+export class ServiceCenter {
   @PrimaryColumn()
-  instituicao_id: string;
+  service_center_id: string;
 
   @Column()
-  instituicao_nome: string;
+  service_center_name: string;
 
   @Column()
   cnpj: string;
@@ -16,11 +16,11 @@ export class Instituicao {
   email: string;
 
   @Column()
-  senha: string;
+  password: string;
 
   constructor() {
-    if (!this.instituicao_id) {
-      this.instituicao_id = uuid();
+    if (!this.service_center_id) {
+      this.service_center_id = uuid();
     }
   }
 }

@@ -1,20 +1,20 @@
 import { Entity, Column, PrimaryColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 
-@Entity('estados')
-export class Estado {
+@Entity('states')
+export class State {
   @PrimaryColumn()
-  estado_id: string;
+  state_id: string;
 
   @Column()
-  estado_nome: string;
+  state_name: string;
 
   @Column()
   uf: string;  
 
   constructor() {
-    if (!this.estado_id) {
-      this.estado_id = uuid();
+    if (!this.state_id) {
+      this.state_id = uuid();
     }
   }
 }
