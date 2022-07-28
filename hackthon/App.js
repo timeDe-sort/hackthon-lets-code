@@ -7,7 +7,7 @@ import Login from './screens/Login';
 import HomeScreen from './screens/HomeScreen';
 import SelectRole from './screens/SelectRole';
 import LoginOrRegister from './screens/LoginOrRegister';
-import RegisterUser from './screens/Register';
+import RegisterUser from './screens/RegisterUser';
 import RegisterServiceCenter from './screens/RegisterServiceCenter';
 
 

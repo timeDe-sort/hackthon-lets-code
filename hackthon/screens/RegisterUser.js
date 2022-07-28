@@ -1,7 +1,7 @@
 import React from 'react';
 import { Checkbox } from 'react-native-paper';
 import { Button , View , ScrollView, Text, SafeAreaView,TextInput} from 'react-native';  
-import DistrictDropdown from './form-components/DistrictsDropdownComponent';
+import DropDownPicker from 'react-native-dropdown-picker';
 
 const styles = {
     borderSettings : {border: '1px solid black'},
@@ -25,6 +25,36 @@ const styles = {
     },      
 }
 
+const states = [
+    {label : "AC" , value : "AC"},
+    {label : "AL" , value : "AL"},
+    {label : "AP" , value : "AP"},
+    {label : "AM" , value : "AM"},
+    {label : "BA" , value : "BA"},
+    {label : "CE" , value : "CE"},
+    {label : "DF" , value : "DF"},
+    {label : "ES" , value : "ES"},
+    {label : "GO" , value : "GO"},
+    {label : "MA" , value : "MA"},
+    {label : "MT" , value : "MT"},
+    {label : "MS" , value : "MS"},
+    {label : "MG" , value : "MG"},
+    {label : "PA" , value : "PA"},
+    {label : "PB" , value : "PB"},
+    {label : "PR" , value : "PR"},
+    {label : "PE" , value : "PE"},
+    {label : "PI" , value : "PI"},
+    {label : "RJ" , value : "RJ"},
+    {label : "RN" , value : "RN"},
+    {label : "RS" , value : "RS"},
+    {label : "RO" , value : "RO"},
+    {label : "RR" , value : "RR"},
+    {label : "SC" , value : "SC"},
+    {label : "SP" , value : "SP"},
+    {label : "SE" , value : "SE"},
+    {label : "TO" , value : "TO"},
+]
+
 
 function RegisterUser(props) {
 
@@ -34,7 +64,7 @@ function RegisterUser(props) {
 
     const [name, setName] = React.useState("");
     const [cpf, setCpf] = React.useState("");
-    const [age, setAge] = React.useState(null);
+    const [age, setAge] = React.useState("");
     const [cep, setCep] = React.useState("");
     const [city, setCity] = React.useState("");
     const [observationField, setObservationField] = React.useState("");
@@ -48,15 +78,16 @@ function RegisterUser(props) {
     const [motherName, setMotherName] = React.useState("");
     const [familyCode, setFamilyCode] = React.useState("");
 
-    const [open, setOpen] = React.useState(false);
-    const [value, setValue] = React.useState(null);
-    const [items, setItems] = React.useState(Estados);
     const [financialHelp, setFinancialHelp] = React.useState(false);
     const [materialHelp, setMaterialHelp] = React.useState(false);
     const [morningPeriod, setMorningPeriod] = React.useState(false);
     const [afternoonPeriod, setAfternoonPeriod] = React.useState(false);
     const [nightPeriod, setNightPeriod] = React.useState(false);
     const [allDayPeriod, setAllDayPeriod] = React.useState(false);
+
+    const [open, setOpen] = React.useState(false);
+    const [value, setValue] = React.useState(null);
+    const [items, setItems] = React.useState(states);
 
     function finishRegistration(){
         navigation.navigate('HomeScreen')
@@ -131,9 +162,9 @@ function RegisterUser(props) {
                             value={city}
                             />
                         </View>
-                        <View>
-                            <DistrictDropdown></DistrictDropdown>
-                        </View>
+
+
+
                         <View>
                             <Text >Observação:</Text>
                             <TextInput
@@ -142,7 +173,21 @@ function RegisterUser(props) {
                             value={observationField}
                             />
                         </View>
-                        
+                        <DropDownPicker
+                        open={open}
+                        value={value}
+                        items={items}
+                        setOpen={setOpen}
+                        setValue={setValue}
+                        setItems={setItems}
+                        searchable={true}
+                        searchTextInputProps={{
+                            maxLength: 25
+                        }}
+                        containerStyle={{
+                            width: "20%",
+                        }}
+                        />
                         {(params.type === 0) && // DOADOR
                         
                         <View>  
