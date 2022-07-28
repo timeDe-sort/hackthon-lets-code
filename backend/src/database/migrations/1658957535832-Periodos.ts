@@ -8,12 +8,12 @@ export class Periodos1658957535832 implements MigrationInterface {
                 name: 'periodos',
                 columns: [
                     {
-                        name: 'periodo_id',
+                        name: 'period_id',
                         type: 'uuid',
                         isPrimary: true
                     },
                     {
-                        name: 'nome',
+                        name: 'name',
                         type: 'varchar'
                     }
                 ]

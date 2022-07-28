@@ -4,14 +4,14 @@ import { v4 as uuid } from "uuid";
 @Entity('periodos')
 export class Periodo {
   @PrimaryColumn()
-  periodo_id: string;
+  period_id: string;
 
   @Column()
-  nome: string;
+  name: string;
 
   constructor() {
-    if (!this.periodo_id) {
-      this.periodo_id = uuid();
+    if (!this.period_id) {
+      this.period_id = uuid();
     }
   }
 }

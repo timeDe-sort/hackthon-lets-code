@@ -1,4 +1,4 @@
-import { CreateEstudanteService } from "../services/CreateEstudanteService";
+import { CreateEstudanteService } from "../../services/CreateStudentService";
 
 export default async function CreateEstudanteController(req, res) {
   const service = new CreateEstudanteService();

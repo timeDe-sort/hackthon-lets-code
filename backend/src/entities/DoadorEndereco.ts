@@ -10,7 +10,7 @@ export class DoadorEndereco {
 
   @ManyToMany(() => Doador)
   @JoinColumn({ name: 'doador_id' })
-  doador_id = Doador;
+  doador_id: Doador;
 
   @Column()
   rua: string;
