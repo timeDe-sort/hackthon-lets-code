@@ -104,7 +104,7 @@ function RegisterServiceCenter(props) {
                     </View>
                 </SafeAreaView>
 
-                <Button title="Finalizar" onPress={() => navigation.navigate('HomeScreen')} />
+                <Button title="Finalizar" onPress={() => navigation.navigate('LoogedScreen', {type: params.type})} />
 
                 <Text> 
                     Referências

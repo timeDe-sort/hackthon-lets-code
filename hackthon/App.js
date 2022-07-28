@@ -9,6 +9,8 @@ import SelectRole from './screens/SelectRole';
 import LoginOrRegister from './screens/LoginOrRegister';
 import RegisterUser from './screens/RegisterUser';
 import RegisterServiceCenter from './screens/RegisterServiceCenter';
+import Profile from './screens/Profile';
+import LoogedScreen from './screens/LoggedScreen';
 
 
 const Stack = createStackNavigator();
@@ -22,6 +24,9 @@ function MyStack() {
       <Stack.Screen name="LoginOrRegister" component={LoginOrRegister} />
       <Stack.Screen name="RegisterUser" component={RegisterUser} />
       <Stack.Screen name="RegisterServiceCenter" component={RegisterServiceCenter} />
+      <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name="LoogedScreen" component={LoogedScreen} />
+
     </Stack.Navigator>
   );
 }

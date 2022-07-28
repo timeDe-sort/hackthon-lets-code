@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Button , View , ScrollView, Text, SafeAreaView,TextInput } from 'react-native';  
-
+import Header from './auxiliar/Header';
 const styles = {
   header : {alignItems: 'center', justifyContent: 'center', backgroundColor: 'aquamarine', display:'flex' },
   titleH1 : {fontSize: 30},
@@ -24,9 +24,7 @@ function Login(props) {
   return (
     <>
       <ScrollView>
-        <Text className="Header" style={styles.header}> 
-          <Text style={styles.titleH1}>Nome do Aplicativo</Text>
-        </Text>
+        <Header></Header>
 
         <View style={styles.boxForms}>
           <Text style={styles.titleH2} className="Login">Login</Text>

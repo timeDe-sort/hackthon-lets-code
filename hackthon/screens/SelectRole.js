@@ -1,5 +1,5 @@
 import { Button , View , ScrollView, Text, SafeAreaView,TextInput, Pressable } from 'react-native';  
-
+import Header from './auxiliar/Header';
 
 const styles = {
     header : { alignItems: 'center',justifyContent: 'center',backgroundColor: 'aquamarine',display:'flex' },
@@ -32,9 +32,7 @@ function SelectRole(props) {
         <>
             <ScrollView>
 
-            <Text style={styles.header}> 
-                <Text style={styles.titleH1}>Nome do Aplicativo</Text>
-            </Text>
+                <Header></Header>
 
             <View style={styles.boxButtons}>
                 <View style={styles.buttons}>

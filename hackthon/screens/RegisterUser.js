@@ -2,7 +2,7 @@ import React from 'react';
 import { Checkbox } from 'react-native-paper';
 import { Button , View , ScrollView, Text, SafeAreaView,TextInput} from 'react-native';  
 import DropDownPicker from 'react-native-dropdown-picker';
-
+import Header from './auxiliar/Header';
 const styles = {
     borderSettings : {border: '1px solid black'},
     header : {alignItems: 'center',justifyContent: 'center',backgroundColor: 'aquamarine',display:'flex' },
@@ -90,7 +90,7 @@ function RegisterUser(props) {
     const [items, setItems] = React.useState(states);
 
     function finishRegistration(){
-        navigation.navigate('HomeScreen')
+        navigation.navigate('LoogedScreen', {type: params.type})
         setName("")
         setCep("")
         setCpf("")
@@ -110,9 +110,7 @@ function RegisterUser(props) {
     return (
         <>
             <ScrollView>
-            <Text  style={styles.header}> 
-                <Text style={styles.titleH1}>Nome do Aplicativo</Text>
-            </Text>
+                <Header></Header>
                 <SafeAreaView>
                     <View >
                         {/* COMUM A TODOS */}

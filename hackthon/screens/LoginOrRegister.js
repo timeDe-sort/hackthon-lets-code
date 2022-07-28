@@ -1,5 +1,5 @@
 import { Button , View , ScrollView, Text, SafeAreaView,TextInput} from 'react-native';  
-
+import Header from './auxiliar/Header';
 
 
 const styles = {
@@ -35,9 +35,7 @@ function LoginOrRegister(props) {
     console.log(type === 0) 
     return (
         <>
-            <Text > 
-                <Text>{params.info}</Text>
-            </Text>
+            <Header></Header>
             <View>
             <View style={styles.boxButtons}>
             <Button title= "Login" onPress={() => navigation.navigate('Login' , {type : type})} />
