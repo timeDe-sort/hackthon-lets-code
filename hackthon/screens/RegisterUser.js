@@ -1,6 +1,7 @@
 import React from 'react';
 import { Checkbox } from 'react-native-paper';
-import { Button , View , ScrollView, Text, SafeAreaView,TextInput} from 'react-native';  
+import { Button , View , ScrollView, Text, SafeAreaView} from 'react-native';  
+import { TextInput } from 'react-native-paper';
 import DropDownPicker from 'react-native-dropdown-picker';
 import Header from './auxiliar/Header';
 const styles = {
@@ -22,7 +23,12 @@ const styles = {
         marginLeft : "20%",
         marginTop : "0.5rem",
         marginBottom : "0.5rem"
-    },      
+    },  
+    textInput: {
+        height: 50, 
+        marginBottom: "1rem" 
+
+    }    
 }
 
 const states = [
@@ -90,7 +96,7 @@ function RegisterUser(props) {
     const [items, setItems] = React.useState(states);
 
     function finishRegistration(){
-        navigation.navigate('LoogedScreen', {type: params.type})
+        navigation.navigate('LoggedScreen', {type: params.type})
         setName("")
         setCep("")
         setCpf("")
@@ -115,60 +121,60 @@ function RegisterUser(props) {
                     <View >
                         {/* COMUM A TODOS */}
                         <View>
-                            <Text >Nome:</Text>
                             <TextInput
-                            style={styles.borderSettings}
+                            style={styles.textInput}
                             onChangeText={setName}
                             value={name}
+                            label="Nome"
                             />
                         </View>
                         <View>
-                            <Text >CPF:</Text>
                             <TextInput
-                            style={styles.borderSettings}
+                            style={styles.textInput}
                             onChangeText={setCpf}
                             value={cpf}
+                            label="CPF"
                             />
                         </View>
                         <View>
-                            <Text >Idade:</Text>
                             <TextInput
-                            style={styles.borderSettings}
+                            style={styles.textInput}
                             onChangeText={setAge}
                             value={age}
+                            label="Idade"
                             />
                         </View>
                         <View>
                             <Text >Data de Nascimento:</Text>
                             <TextInput
-                            style={styles.borderSettings}
+                            style={styles.textInput}
                             />
                         </View>
                         <View>
-                            <Text >CEP:</Text>
                             <TextInput
-                            style={styles.borderSettings}
+                            style={styles.textInput}
                             onChangeText={setCep}
                             value={cep}
+                            label="CEP"
                             />
                         </View>
                         <View>
-                            <Text >Cidade:</Text>
                             <TextInput
-                            style={styles.borderSettings}
+                            style={styles.textInput}
                             onChangeText={setCity}
                             value={city}
+                            label="Cidade"
                             />
                         </View>
 
 
 
                         <View>
-                            <Text >Observação:</Text>
                             <TextInput
-                            style={styles.borderSettings}
+                            style={styles.textInput}
                             onChangeText={setObservationField}
                             value={observationField}
+                            label="Observação"
                             />
                         </View>
                         <DropDownPicker
@@ -190,11 +196,11 @@ function RegisterUser(props) {
                         
                         <View>  
                             <View>
-                                <Text >Profissão:</Text>
                                 <TextInput
-                                style={styles.borderSettings}
+                                style={styles.textInput}
                                 onChangeText={setJob}
                                 value={job}
+                                label="Profissão"
                                 />
                             </View>
                             <View style={{flexDirection: "row"}}>
@@ -220,19 +226,19 @@ function RegisterUser(props) {
                         
                         <View>    
                             <View>
-                                <Text >Universidade:</Text>
                                 <TextInput
-                                style={styles.borderSettings}
+                                style={styles.textInput}
                                 onChangeText={setUniversity}
                                 value={university}
+                                label="Universidade"
                                 />
                             </View>
                             <View>
-                                <Text >Disciplina oferecida:</Text>
                                 <TextInput
-                                style={styles.borderSettings}
+                                style={styles.textInput}
                                 onChangeText={setSubject}
                                 value={subject}
+                                label="Disciplina oferecida"
                                 />
                             </View>
                             <View style={{flexDirection: "row"}}>
@@ -264,19 +270,19 @@ function RegisterUser(props) {
                         {(params.type===3) && // ALUNO
                         <View>
                             <View>
-                            <Text >Escola:</Text>
                             <TextInput
-                            style={styles.borderSettings}
+                            style={styles.textInput}
                             onChangeText={setSchool}
                             value={school}
+                            label="Escola"
                             />
                             </View> 
                             <View>
-                            <Text >Ano:</Text>
                             <TextInput
-                            style={styles.borderSettings}
+                            style={styles.textInput}
                             onChangeText={setSchoolYear}
                             value={schoolYear}
+                            label="Ano"
                             />
                             </View>
                             <View style={{flexDirection: "row"}}>
@@ -323,17 +329,19 @@ function RegisterUser(props) {
                             <View>
                             <Text >Nome da Mãe:</Text>
                             <TextInput
-                            style={styles.borderSettings}
+                            style={styles.textInput}
                             onChangeText={setMotherName}
                             value={motherName}
+                            label="Nome da Mãe"
                             />
                             </View> 
                             <View>
                             <Text >Código familiar:</Text>
                             <TextInput
-                            style={styles.borderSettings}
+                            style={styles.textInput}
                             onChangeText={setFamilyCode}
                             value={familyCode}
+                            label="Código familiar"
                             />
                             </View>
                         </View>
@@ -342,9 +350,10 @@ function RegisterUser(props) {
                         <View>
                             <Text >Email:</Text>
                             <TextInput
-                            style={styles.borderSettings}
+                            style={styles.textInput}
                             onChangeText={setEmail}
                             value={email}
+                            label="Email"
                             />
                         </View>
 
@@ -352,10 +361,11 @@ function RegisterUser(props) {
                             <Text>Senha:</Text>
                             <TextInput
                             onChangeText={setPassword}
-                            style={styles.borderSettings}
+                            style={styles.textInput}
                             value={password}
                             secureTextEntry={true}
                             textContentType="password"
+                            label="Senha"
                             />
                         </View>
                     </View>
