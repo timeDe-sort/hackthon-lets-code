@@ -1,6 +1,3 @@
-import { Entity, PrimaryColumn, ManyToMany, JoinColumn } from "typeorm";
-
-
 export enum  Period {
     MORNING = 'Matutino',
     AFTERNOON = 'Vespertino',
