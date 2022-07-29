@@ -1,22 +1,15 @@
-import { Entity, Column, PrimaryColumn, ManyToOne, JoinColumn } from "typeorm";
-import { v4 as uuid } from "uuid";
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from "typeorm";
 import { State } from "./State";
 
 @Entity('cities')
 export class City {
-  @PrimaryColumn()
-  city_id: string;
+  @PrimaryGeneratedColumn({ type: 'smallint' })
+  city_id: number;
 
-  @Column()
+  @Column({ type: 'varchar', length: 50 })
   city_name: string;
 
   @ManyToOne(() => State)
   @JoinColumn({ name: 'state_id' })
   state_id: State;
-
-  constructor() {
-    if (!this.city_id) {
-      this.city_id = uuid();
-    }
-  }
 }

@@ -1,26 +1,20 @@
+import { type } from "os";
 import { Entity, Column, PrimaryColumn } from "typeorm";
-import { v4 as uuid } from "uuid";
 
 @Entity('donator')
 export class Donator {
-  @PrimaryColumn()
-  donator_id: string;
+  @PrimaryColumn({ type: 'int' })
+  donator_id: number;
 
-  @Column()
+  @Column({ type: 'varchar', length: 50 })
   donator_name: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 14 })
   document: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 50 })
   email: string;
 
-  @Column()
+  @Column({ type: 'char', length: 64 })
   password: string;
-  
-  constructor() {
-    if (!this.donator_id) {
-      this.donator_id = uuid();
-    }
-  }
 }

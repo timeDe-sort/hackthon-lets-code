@@ -1,14 +1,14 @@
-import { Entity, PrimaryColumn, ManyToMany, JoinColumn } from "typeorm";
-import { v4 as uuid } from "uuid";
+import { Entity, PrimaryColumn, ManyToMany, JoinColumn, Column } from "typeorm";
 import { Donator } from "./Donator";
 import { Student } from "./Student";
 import { ServiceCenter } from "./ServiceCenter";
-import { SupportType } from "./SupportType";
+import { SupportType } from "./enum";
+
 
 @Entity('donations')
 export class Donation {
-  @PrimaryColumn()
-  donation_id: string;
+  @PrimaryColumn({ type: 'int' })
+  donation_id: number;
 
   @ManyToMany(() => ServiceCenter)
   service_center_id: ServiceCenter;
@@ -22,13 +22,9 @@ export class Donation {
   @JoinColumn({ name: 'student_id' })
   student_id: Student;
 
-  @ManyToMany(() => SupportType)
-  @JoinColumn({ name: 'support_type_id' })
-  support_type_id: SupportType;
-  
-  constructor() {
-    if (!this.donation_id) {
-      this.donation_id = uuid();
-    }
-  }
+  @Column({
+    type: 'enum',
+    enum: SupportType,
+  })
+  support_type: SupportType
 }

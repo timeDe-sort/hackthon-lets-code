@@ -1,59 +1,47 @@
 import { Entity, Column, PrimaryColumn, CreateDateColumn, ManyToOne, JoinColumn } from "typeorm";
-import { v4 as uuid } from "uuid";
 import { ServiceCenter } from "./ServiceCenter";
-import { Period } from "./Period";
-import { SchoolYear } from "./SchoolYear";
+import { SchoolYear } from "./enum";
+import { Period } from "./enum";
 
 @Entity('students')
 export class Student {
-  @PrimaryColumn()
-  student_id: string;
+  @PrimaryColumn({ type: 'int' })
+  student_id: number;
 
-  @Column()
+  @Column({ type: 'varchar', length: 50 })
   name: string;
 
-  @Column()
+  @Column({ type: 'char', length: 11 })
   cpf: string;
 
-  @CreateDateColumn()
+  @CreateDateColumn({ type: 'date' })
   birth_date: Date;
 
-  @Column()
+  @Column({ type: 'varchar', length: 50 })
   email: string;
 
-  @Column()
+  @Column({ type: 'char', length: 64 })
   password: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 50 })
   mother_name: string;
 
-  @Column()
+  @Column({ type: 'char', length: 8 })
   family_code: string;
 
   @ManyToOne(() => ServiceCenter)
   @JoinColumn({ name: 'service_center_id' })
-  service_center: ServiceCenter;
+  service_center_id: ServiceCenter;
 
-  @Column()
-  service_center_id: string;
-
-  @ManyToOne(() => Period)
-  @JoinColumn({ name: 'period_id' })
+  @Column({
+    type: 'enum',
+    enum: Period,
+  })
   period: Period;
 
-  @Column()
-  period_id: string;
-
-  @ManyToOne(() => SchoolYear)
-  @JoinColumn({ name: 'school_year_id' })
+  @Column({
+    type: 'enum',
+    enum: SchoolYear,
+  })
   school_year: SchoolYear;
-
-  @Column()
-  school_year_id: string;
-  
-  constructor() {
-    if (!this.student_id) {
-      this.student_id = uuid();
-    }
-  }
 }

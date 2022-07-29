@@ -1,51 +1,46 @@
 import { Entity, Column, PrimaryColumn, CreateDateColumn, ManyToOne, JoinColumn } from "typeorm";
-import { v4 as uuid } from "uuid";
+import { Period } from "./enum";
 import { ServiceCenter } from "./ServiceCenter";
-import { Period } from "./Period";
 
 @Entity('volunteer')
 export class Volunteer {
-  @PrimaryColumn()
-  volunteer_id: string;
+  @PrimaryColumn({ type: 'smallint' })
+  volunteer_id: number;
 
-  @Column()
-  volunteer_nome: string;
+  @Column({ type: 'varchar', length: 50 })
+  volunteer_name: string;
 
-  @Column()
+  @Column({ type: 'char', length: 11 })
   cpf: string;
 
-  @CreateDateColumn()
+  @CreateDateColumn({ type: 'date' })
   birth_date: Date;
 
-  @Column()
+  @Column({ type: 'varchar', length: 50 })
   university: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 50 })
   degree: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 50 })
   email: string;
 
-  @Column()
+  @Column({ type: 'char', length: 64 })
   password: string;
 
-  @Column()
+  @Column({ type: 'char', length: 20 })
   subject: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 500 })
   observation: string;
 
   @ManyToOne(() => ServiceCenter)
   @JoinColumn({ name: 'service_center_id' })
   service_center_id: ServiceCenter;
 
-  @ManyToOne(() => Period)
-  @JoinColumn({ name: 'period_id' })
-  period_id: Period;
-
-  constructor() {
-    if (!this.volunteer_id) {
-      this.volunteer_id = uuid();
-    }
-  }
+  @Column({
+    type: 'enum',
+    enum: Period,
+  })
+  period: Period;
 }

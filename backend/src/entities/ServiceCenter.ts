@@ -1,26 +1,19 @@
 import { Entity, Column, PrimaryColumn } from "typeorm";
-import { v4 as uuid } from "uuid";
 
 @Entity('service_centers')
 export class ServiceCenter {
-  @PrimaryColumn()
-  service_center_id: string;
+  @PrimaryColumn({ type: 'int' })
+  service_center_id: number;
 
-  @Column()
+  @Column({ type: 'varchar', length: 50 })
   service_center_name: string;
 
-  @Column()
+  @Column({ type: 'char', length: 14 })
   cnpj: string;
 
-  @Column()
+  @Column({type: 'varchar', length: 50})
   email: string;
 
-  @Column()
+  @Column({type: 'char', length: 64})
   password: string;
-
-  constructor() {
-    if (!this.service_center_id) {
-      this.service_center_id = uuid();
-    }
-  }
 }
