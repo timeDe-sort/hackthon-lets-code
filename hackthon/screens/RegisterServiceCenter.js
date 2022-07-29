@@ -156,7 +156,6 @@ function RegisterServiceCenter(props) {
                             />
                         </View>
                         <View>
-                            <Text>Senha:</Text>
                             <TextInput
                             onChangeText={setPassword}
                             style={styles.textInput}

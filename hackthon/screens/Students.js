@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Title, Paragraph } from 'react-native-paper';
 import { View , SafeAreaView } from 'react-native';  
 
-function Students(){
+export function Students(){
 
 
 

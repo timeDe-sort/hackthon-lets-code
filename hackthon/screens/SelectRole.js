@@ -34,24 +34,24 @@ function SelectRole(props) {
 
                 <Header></Header>
 
-            <View style={styles.boxButtons}>
-                <View style={styles.buttons}>
-                <Button   title= "Doador" onPress={() => navigation.navigate('LoginOrRegister', {type : 0})} />
+                <View style={styles.boxButtons}>
+                    <View style={styles.buttons}>
+                    <Button   title= "Doador" onPress={() => navigation.navigate('LoginOrRegister', {type : 0})} />
+                    </View>
+                    <View style={styles.buttons}>
+                    <Button   title= "Voluntário" onPress={() => navigation.navigate('LoginOrRegister', {type : 1})} />
+                    </View>
+                    <View style={styles.buttons}>
+                    <Button   title= "Centro" onPress={() => navigation.navigate('LoginOrRegister', {type : 2})} />
+                    </View>
+                    <View style={styles.buttons}>
+                    <Button  title= "Aluno" onPress={() => navigation.navigate('LoginOrRegister', {type : 3})} />
+                    </View>
                 </View>
-                <View style={styles.buttons}>
-                <Button   title= "Voluntário" onPress={() => navigation.navigate('LoginOrRegister', {type : 1})} />
-                </View>
-                <View style={styles.buttons}>
-                <Button   title= "Centro" onPress={() => navigation.navigate('LoginOrRegister', {type : 2})} />
-                </View>
-                <View style={styles.buttons}>
-                <Button  title= "Aluno" onPress={() => navigation.navigate('LoginOrRegister', {type : 3})} />
-                </View>
-            </View>
 
-            <Text style={styles.header}> 
-                <Text style={styles.titleH1}>Referências</Text>
-            </Text>
+                {/* <Text style={styles.header}> 
+                    <Text style={styles.titleH1}>Referências</Text>
+                </Text> */}
             </ScrollView>
         </>
 

@@ -9,7 +9,7 @@ const styles = {
   header : {alignItems: 'center', justifyContent: 'center', backgroundColor: 'aquamarine', display:'flex' },
   titleH1 : {fontSize: 30},
   titleH2 : {fontSize: 20},
-  boxForms : {display: 'flex', alignItems: 'center', justifyContent: 'center', border: "1px solid black"},
+  boxForms : { justifyContent: 'space-around', height: "80%", width: "80%",marginLeft:"10%"},
   input: {
     height: 40,
     margin: 12,
@@ -18,8 +18,8 @@ const styles = {
   },
   textInput: {
     height: 50, 
-    marginBottom: "1rem" 
-
+    marginBottom: "1rem" ,
+    marginTop: "1rem"
 }    
 }
 
@@ -33,13 +33,11 @@ function Login(props) {
     
   return (
     <>
-      <ScrollView>
-        <Header></Header>
+      <Header ></Header>
+      <View style={styles.boxForms}>
 
-        <View style={styles.boxForms}>
-          <Text style={styles.titleH2} className="Login">Login</Text>
-
-          <SafeAreaView>
+        
+          <View>
             <TextInput
               style={styles.textInput}
               onChangeText={setLogin}
@@ -50,20 +48,17 @@ function Login(props) {
               style={styles.textInput}
               onChangeText={setPassword}
               value={password}
-              placeholder="placeholder"
               secureTextEntry={true}
               textContentType="password"
               label="Senha"
             />
-          </SafeAreaView>
+            </View>
+
         </View>
-
         <Button title="Entrar"onPress={() => navigation.navigate('LoggedScreen',{type: type})} />
-
-        <Text style={styles.header}>
+        {/* <Text style={styles.header}>
         Referências
-        </Text>
-      </ScrollView>
+        </Text> */}
     </>
   );
 }

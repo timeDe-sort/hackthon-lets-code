@@ -36,19 +36,20 @@ function LoginOrRegister(props) {
     return (
         <>
             <Header></Header>
+
             <View>
-            <View style={styles.boxButtons}>
-            <Button title= "Login" onPress={() => navigation.navigate('Login' , {type : type})} />
-            </View>
-            {
-             (type != 2) ?
-             <View style={styles.boxButtons}>
-             <Button title= "Registrar" onPress={() => navigation.navigate('RegisterUser', {type : type})} />
-             </View> :
-             <View style={styles.boxButtons}>
-             <Button title= "Registrar" onPress={() => navigation.navigate('RegisterServiceCenter', {type : type})} />
-             </View>
-            }
+                <View style={styles.boxButtons}>
+                    <Button title= "Login" onPress={() => navigation.navigate('Login' , {type : type})} />
+                </View>
+                {
+                (type != 2) ?
+                <View style={styles.boxButtons}>
+                    <Button title= "Registrar" onPress={() => navigation.navigate('RegisterUser', {type : type})} />
+                </View> :
+                <View style={styles.boxButtons}>
+                    <Button title= "Registrar" onPress={() => navigation.navigate('RegisterServiceCenter', {type : type})} />
+                </View>
+                }
             </View>
         </>
 

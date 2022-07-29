@@ -1,4 +1,6 @@
-import { Button , View } from 'react-native';  
+import { Button , View, Text } from 'react-native';  
+import React from 'react';
+import { TextInput,Checkbox } from 'react-native-paper';
 
 
 const styles = {
@@ -16,7 +18,7 @@ const styles = {
     }
 }
 
-function LoggedScreenDonator(props){
+export function LoggedScreenDonator(props){
 
     return(
 
@@ -34,4 +36,42 @@ function LoggedScreenDonator(props){
     )
 }
 
-export default LoggedScreenDonator
+
+export function DonatorRegister(){
+
+
+    const [job, setJob] = React.useState("");
+    const [financialHelp, setFinancialHelp] = React.useState(false);
+    const [materialHelp, setMaterialHelp] = React.useState(false);
+
+    return (
+
+            <View>  
+                <View>
+                    <TextInput
+                    style={styles.textInput}
+                    onChangeText={setJob}
+                    value={job}
+                    label="Profissão"
+                    />
+                </View>
+                <View style={{flexDirection: "row", justifyContent: 'space-between'}}>
+                    <Text >Categoria de Ajuda: </Text>
+                    <Text>Financeira</Text>
+                    <Checkbox
+                    status={financialHelp ? 'checked' : 'unchecked'}
+                    onPress={() => {
+                        setFinancialHelp(!financialHelp);
+                    }}
+                    />
+                    <Text>Material</Text>
+                    <Checkbox
+                    status={materialHelp ? 'checked' : 'unchecked'}
+                    onPress={() => {
+                        setMaterialHelp(!materialHelp);
+                    }}
+                    />
+                </View>
+            </View>
+)
+}
