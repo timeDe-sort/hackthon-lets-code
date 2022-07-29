@@ -31,7 +31,12 @@ export class Estudantes1658957579341 implements MigrationInterface {
                     {
                         name: 'school_year',
                         type: 'enum',
-                        enum: ['1º ano (fundamental)', '2º ano (fundamental)', '3º ano (fundamental)', '4º ano (fundamental)', '5º ano (fundamental)', '6º ano (fundamental)', '7º ano (fundamental)', '7º ano (fundamental)', '8º ano (fundamental)', '9º ano (fundamental)', '1º ano (ensino médio)', '2º ano (ensino médio)', '3º ano (ensino médio)'],
+                        enum: [
+                            '1º ano (fundamental)', '2º ano (fundamental)', '3º ano (fundamental)', 
+                            '4º ano (fundamental)', '5º ano (fundamental)', '6º ano (fundamental)', 
+                            '7º ano (fundamental)', '8º ano (fundamental)', '9º ano (fundamental)',
+                            '1º ano (ensino médio)', '2º ano (ensino médio)', '3º ano (ensino médio)',
+                        ],
                     },
                     {
                         name: 'period',
