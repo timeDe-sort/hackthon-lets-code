@@ -5,7 +5,7 @@ type StudentAddressRequest = {
   address_id: number;
 }
 
-export class DeleteSchoolYearService {
+export class DeleteStudentAddressService {
   async execute({ address_id }:StudentAddressRequest): Promise<StudentAddress | Error> {
     const repo = AppDataSource.getRepository(StudentAddress);    
 

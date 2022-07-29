@@ -1,16 +1,14 @@
 import { Request, Response } from "express";
-import { UpdatePeriodService } from "../../services/Students/UpdateStudentService";
+import { UpdateServiceCenterService } from "../../services/ServiceCenter/UpdateServiceCenterService";
 
-export default async function UpdatePeriodController(req: Request, res: Response) {
-  const service = new UpdatePeriodService();    
+export default async function UpdateServiceCenterController(req: Request, res: Response) {
+  const service = new UpdateServiceCenterService();    
   const { id } = req.params;
-  const { name } = req.body;
+  const { service_center_name, cnpj, email, password } = req.body;
   
-  const result = await service.execute({ period_id: id, name });
+  const result = await service.execute({ service_center_id: Number(id), service_center_name, cnpj, email, password });
 
-  if (result instanceof Error) {
-    return res.status(400).json(result.message);
-  }
+  if (result instanceof Error) return res.status(400).json(result.message);
 
   return res.json(result);
 }

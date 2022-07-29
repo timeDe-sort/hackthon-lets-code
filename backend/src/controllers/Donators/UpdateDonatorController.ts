@@ -1,18 +1,14 @@
 import { Request, Response } from "express";
-import { UpdateSchoolYearService } from "../../services/StudentsAddress/UpdateVolunteerService";
+import { UpdateDonatorService } from "../../services/Donators/UpdateDonatorService";
 
-export default async function UpdateSchoolYearController(req: Request, res: Response) {
-  const service = new UpdateSchoolYearService();    
+export default async function UpdateDonatorController(req: Request, res: Response) {
+  const service = new UpdateDonatorService();    
   const { id } = req.params;
-  const { serie_nome } = req.body;
-  console.log(id);
+  const { donator_name, document, email, password } = req.body;  
   
-  
-  const result = await service.execute({ serie_id: id, serie_nome });
+  const result = await service.execute({ donator_id: Number(id), donator_name, document, email, password });
 
-  if (result instanceof Error) {
-    return res.status(400).json(result.message);
-  }
+  if (result instanceof Error) return res.status(400).json(result.message);
 
   return res.json(result);
 }

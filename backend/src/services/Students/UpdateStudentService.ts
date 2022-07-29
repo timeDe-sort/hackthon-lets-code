@@ -15,7 +15,7 @@ type StudentRequest = {
   school_year: string;
 }
 
-export class UpdatePeriodService {
+export class UpdateStudentService {
   async execute({ student_id, name, cpf, birth_date, email, password, mother_name, family_code, service_center_id, period, school_year }:StudentRequest): Promise<Student | Error> {
     const repo = AppDataSource.getRepository(Student);    
     const student = await repo.findOneBy({ student_id });

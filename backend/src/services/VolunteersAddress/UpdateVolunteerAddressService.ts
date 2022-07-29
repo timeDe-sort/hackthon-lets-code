@@ -10,14 +10,12 @@ type VolunteerAddressRequest = {
   city_id: number;
 }
 
-export class UpdateSchoolYearService {
+export class UpdateVolunteerAddressService {
   async execute({ address_id, volunteer_id, street, number, address_complement, city_id }:VolunteerAddressRequest): Promise<VolunteerAddress | Error> {
     const repo = AppDataSource.getRepository(VolunteerAddress);    
     const volunteerAddress = await repo.findOneBy({ address_id });
 
-    if (!volunteerAddress) {
-      return new Error('Dado não encontrado.')
-    }
+    if (!volunteerAddress) return new Error('Dado não encontrado.');
 
     volunteerAddress.volunteer_id = volunteer_id ? volunteer_id :  volunteerAddress.volunteer_id;
     volunteerAddress.street = street ? street :  volunteerAddress.street;

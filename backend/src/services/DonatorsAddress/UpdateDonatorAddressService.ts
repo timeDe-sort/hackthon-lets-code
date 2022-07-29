@@ -10,7 +10,7 @@ type DonatorAddressRequest = {
   city_id: number;
 }
 
-export class UpdateSchoolYearService {
+export class UpdateDonatorAddressService {
   async execute({ address_id, donator_id, street, number, address_complement, city_id }:DonatorAddressRequest): Promise<DonatorAddress | Error> {
     const repo = AppDataSource.getRepository(DonatorAddress);    
     const donatorAddress = await repo.findOneBy({ address_id });

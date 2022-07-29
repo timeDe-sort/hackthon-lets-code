@@ -5,9 +5,7 @@ export default async function CreatePeriodoController(req: Request, res: Respons
   const service = new CreatePeriodService();    
   const result = await service.execute(req.body);
 
-  if (result instanceof Error) {
-    return res.status(400).json(result.message);
-  }
+  if (result instanceof Error) return res.status(400).json(result.message);
 
   return res.json(result);
 }

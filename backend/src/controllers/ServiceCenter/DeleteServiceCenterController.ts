@@ -1,15 +1,13 @@
 import { Request, Response } from "express";
-import { DeletePeriodService } from "../../services/Students/DeleteStudentService";
+import { DeleteServiceCenterService } from "../../services/ServiceCenter/DeleteServiceCenterService";
 
-export default async function DeletePeriodController(req: Request, res: Response) {
-  const service = new DeletePeriodService();    
+export default async function DeleteServiceCenterController(req: Request, res: Response) {
+  const service = new DeleteServiceCenterService();    
   const { id } = req.params;
   
-  const result = await service.execute({ period_id: id });
+  const result = await service.execute({ service_center_id: id });
 
-  if (result instanceof Error) {
-    return res.status(400).json(result.message);
-  }
+  if (result instanceof Error) return res.status(400).json(result.message);
 
   return res.status(202).end;
 }

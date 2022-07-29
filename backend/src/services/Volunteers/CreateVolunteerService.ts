@@ -15,7 +15,7 @@ type VolunteerRequest = {
   observation: string;
 }
 
-export class CreateSchoolYearService {
+export class CreateVolunteerService {
   async execute({ volunteer_name, cpf, birth_date, email, password, university, degree, service_center_id, period, subject, observation }:VolunteerRequest): Promise<Volunteer | Error> {
     const repo = AppDataSource.getRepository(Volunteer);
     const findByCpf = await repo.findOneBy({ cpf }); 

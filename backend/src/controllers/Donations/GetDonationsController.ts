@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import { GetSchoolYearsService } from "../../services/StudentsAddress/GetVolunteerService";
+import { GetDonationService } from "../../services/Donations/GetDonationService";
 
-export default async function GetSchoolYearsController(req: Request, res: Response) {
-  const service = new GetSchoolYearsService();    
-  const schoolYears = await service.execute();
+export default async function GetDonationsController(req: Request, res: Response) {
+  const service = new GetDonationService();    
+  const donations = await service.execute();
 
-  return res.json(schoolYears);
+  return res.json(donations);
 }

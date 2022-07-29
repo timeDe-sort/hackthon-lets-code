@@ -5,7 +5,7 @@ type StudentRequest = {
   nome: string;
 }
 
-export class GetPeriodsService {
+export class GetStudentsService {
   async execute() {
     const repo = AppDataSource.getRepository(Student);    
     const student = repo.find();

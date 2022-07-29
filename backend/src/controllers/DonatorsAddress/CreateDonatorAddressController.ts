@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { CreateDonatorService } from '../../services/Donators/CreateDonatorService'
+import { CreateDonatorAddressService } from '../../services/DonatorsAddress/CreateDonatorAddressService'
 
 export default async function CreateDonatorController(req: Request, res: Response) {
-  const service = new CreateDonatorService();    
+  const service = new CreateDonatorAddressService();    
   const result = await service.execute(req.body);
 
   if (result instanceof Error) return res.status(400).json(result.message);

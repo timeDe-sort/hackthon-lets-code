@@ -9,7 +9,7 @@ type DonatorRequest = {
   password: string;
 }
 
-export class UpdateSchoolYearService {
+export class UpdateDonatorService {
   async execute({ donator_id, donator_name, document, email, password }:DonatorRequest): Promise<Donator | Error> {
     const repo = AppDataSource.getRepository(Donator);    
     const donator = await repo.findOneBy({ donator_id });

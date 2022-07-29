@@ -8,7 +8,7 @@ type SeriveCenterRequest = {
   password: string;
 }
 
-export class CreateSeriveCenterService {
+export class CreateServiceCenterService {
   async execute({ service_center_name, cnpj, email, password }:SeriveCenterRequest): Promise<ServiceCenter | Error> {
     const repo = AppDataSource.getRepository(ServiceCenter);
     const findByCnpj =  await repo.findOneBy({ cnpj });

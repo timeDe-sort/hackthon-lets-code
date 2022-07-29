@@ -10,7 +10,7 @@ type StudentAddressRequest = {
   city_id: number;
 }
 
-export class UpdateSchoolYearService {
+export class UpdateStudentAddressService {
   async execute({ address_id, student_id, street, number, address_complement, city_id }:StudentAddressRequest): Promise<StudentAddress | Error> {
     const repo = AppDataSource.getRepository(StudentAddress);    
     const studentAddress = await repo.findOneBy({ address_id });

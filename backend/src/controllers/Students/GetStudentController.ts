@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { GetPeriodsService } from "../../services/Students/GetStudentsService";
+import { GetStudentsService } from "../../services/Students/GetStudentsService";
 
-export default async function GetPeriodsController(req: Request, res: Response) {
-  const service = new GetPeriodsService();    
+export default async function GetStudentsController(req: Request, res: Response) {
+  const service = new GetStudentsService();    
   const periods = await service.execute();
 
   return res.json(periods);

@@ -5,7 +5,7 @@ type VolunteerAddressRequest = {
   address_id: number;
 }
 
-export class DeleteSchoolYearService {
+export class DeleteVolunteerAddressService {
   async execute({ address_id }:VolunteerAddressRequest): Promise<VolunteerAddress | Error> {
     const repo = AppDataSource.getRepository(VolunteerAddress);    
 

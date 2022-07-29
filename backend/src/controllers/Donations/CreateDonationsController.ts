@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { CreateSchoolYearService } from "../../services/StudentsAddress/CreateVolunteerService";
+import { CreateDonationService } from '../../services/Donations/CreateDonationService'
 
-export default async function CreateSchoolYearController(req: Request, res: Response) {
-  const service = new CreateSchoolYearService();    
+export default async function CreateDonationsController(req: Request, res: Response) {
+  const service = new CreateDonationService();    
   const result = await service.execute(req.body);
 
   if (result instanceof Error) {

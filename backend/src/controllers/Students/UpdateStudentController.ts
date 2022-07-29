@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import { UpdatePeriodService } from "../../services/Students/UpdateStudentService";
+import { UpdateStudentService } from "../../services/Students/UpdateStudentService";
 
-export default async function UpdatePeriodController(req: Request, res: Response) {
-  const service = new UpdatePeriodService();    
+export default async function UpdateStudentController(req: Request, res: Response) {
+  const service = new UpdateStudentService();    
   const { id } = req.params;
-  const { name } = req.body;
+  const { name, cpf, birth_date, email, password, mother_name, family_code, service_center_id, period, school_year  } = req.body;
   
-  const result = await service.execute({ period_id: id, name });
+  const result = await service.execute({ student_id: parseInt(id), name, cpf, birth_date, email, password, mother_name, family_code, service_center_id, period, school_year  });
 
   if (result instanceof Error) {
     return res.status(400).json(result.message);

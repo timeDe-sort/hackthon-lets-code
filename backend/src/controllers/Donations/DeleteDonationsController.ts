@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
-import { DeleteSchoolYearService } from "../../services/StudentsAddress/DeleteVolunteerService";
+import { DeleteDonationService } from '../../services/Donations/DeleteDonationService'
 
-export default async function DeleteSchoolYearController(req: Request, res: Response) {
-  const service = new DeleteSchoolYearService();    
+export default async function DeleteDonationsController(req: Request, res: Response) {
+  const service = new DeleteDonationService();    
   const { id } = req.params;
   
-  const result = await service.execute({ serie_id: id });
+  const result = await service.execute({ donation_id: id });
 
   if (result instanceof Error) {
     return res.status(400).json(result.message);
