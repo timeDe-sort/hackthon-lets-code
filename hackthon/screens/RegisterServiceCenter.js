@@ -1,18 +1,10 @@
 import React from 'react';
-import { Button , View , ScrollView, Text, SafeAreaView} from 'react-native';  
+import { View , ScrollView, Text, SafeAreaView} from 'react-native';  
 import DropDownPicker from 'react-native-dropdown-picker';
 import Header from './auxiliar/Header';
-import { TextInput } from 'react-native-paper';
+import { TextInput, Button } from 'react-native-paper';
+import { styles } from './auxiliar/Styles';
 
-
-const styles = {
-    borderSettings : {border: '1px solid black'},
-    textInput: {
-        height: 50, 
-        marginBottom: "1rem" 
-
-    }  
-}
 
 
 const states = [
@@ -66,13 +58,12 @@ function RegisterServiceCenter(props) {
 
     return (
         <>
-            <ScrollView>
+            <ScrollView style={styles.backGround}>
                 <Header></Header>
 
                 <SafeAreaView>
 
                     <View >
-                        {/* COMUM A TODOS */}
                         <View>
                             <TextInput
                             style={styles.textInput}
@@ -170,12 +161,14 @@ function RegisterServiceCenter(props) {
                 </SafeAreaView>
 
 
-                    <View>
-                        <Button title="Finalizar" onPress={() => navigation.navigate('LoggedScreen', {type: params.type})} />
+                <View style={styles.boxButtons}>
+                    <View style={styles.buttons}>
+                        <Button color={'#272343'}  onPress={() => navigation.navigate('LoggedScreen', {type: params.type})}>
+                            Finalizar
+                        </Button>
                     </View>
-                <Text> 
-                    Referências
-                </Text>
+                </View>
+                        
             </ScrollView>
 
 

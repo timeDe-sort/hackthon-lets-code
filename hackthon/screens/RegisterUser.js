@@ -1,8 +1,6 @@
 import React from 'react';
-import { Checkbox } from 'react-native-paper';
-import { Button , View , ScrollView, Text, SafeAreaView} from 'react-native';  
-import { TextInput } from 'react-native-paper';
-import DropDownPicker from 'react-native-dropdown-picker';
+import { View , ScrollView, Text, SafeAreaView} from 'react-native';  
+import { TextInput, Button } from 'react-native-paper';
 import Header from './auxiliar/Header';
 import BootstrapDatePickerComponent from './BootstrapDatePickerComponent';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -10,31 +8,14 @@ import { StudentRegister } from './auxiliar/Student';
 import { VolunteerRegister } from './auxiliar/Volunteer';
 import { DonatorRegister } from './auxiliar/Donator';
 import DistrictDropdown from './form-components/DistrictsDropdownComponent';
+import { styles } from './auxiliar/Styles';
 
-const styles = {
-    header : {alignItems: 'center',justifyContent: 'center',backgroundColor: 'aquamarine',display:'flex' },
-    boxButtons : {
-        display: 'flex',
-        justifyContent: 'center',
-        width : "60%",
-        marginLeft : "20%",
-        marginTop : "0.5rem",
-        marginBottom : "0.5rem"
-    },  
-    textInput: {
-        height: 50, 
-        marginBottom: "1rem" 
-
-    }    
-}
 
 
 
 function RegisterUser(props) {
-
     const { route,navigation } = props
     const params = route.params
-    console.log(params)
 
     const [name, setName] = React.useState("");
     const [cpf, setCpf] = React.useState("");
@@ -59,7 +40,7 @@ function RegisterUser(props) {
     }
     return (
         <>
-            <ScrollView>
+            <ScrollView style={styles.backGround}>
                 <Header></Header>
                 <SafeAreaView>
                     <View >
@@ -160,17 +141,16 @@ function RegisterUser(props) {
                             />
                         </View>
                     </View>
-                </SafeAreaView>
-                
+                </SafeAreaView>       
                 <View style={styles.boxButtons}>
-                <Button title="Finalizar" onPress={finishRegistration} />
+                    <View style={styles.buttons}>
+                        <Button color={'#272343'}  onPress={finishRegistration}>
+                            Finalizar
+                        </Button>
+                    </View>
                 </View>
-            
+
             </ScrollView>
-
-
-
-
         </>
 
   );

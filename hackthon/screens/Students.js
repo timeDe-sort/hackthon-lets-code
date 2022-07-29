@@ -2,13 +2,15 @@ import { Avatar, Card } from 'react-native-paper';
 import * as React from 'react';
 import { Title, Paragraph } from 'react-native-paper';
 import { View , SafeAreaView } from 'react-native';  
+import { styles } from './auxiliar/Styles';
+
 
 export function Students(){
 
 
 
     return(
-        <SafeAreaView>
+        <SafeAreaView style={styles.backGround}>
             <Card>
                 <Card.Content>  
                     <View style={{ flexDirection: "row", alignItems: 'center'}}>

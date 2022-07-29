@@ -2,14 +2,18 @@ import { Avatar, Card, IconButton } from 'react-native-paper';
 import * as React from 'react';
 import { Title, Paragraph } from 'react-native-paper';
 import { Button , View , ScrollView, Text, SafeAreaView } from 'react-native';  
+import { styles } from './auxiliar/Styles';
 
 function Classes(){
 
 
 
     return(
-        <SafeAreaView>
-            <Card>
+        <SafeAreaView style={styles.backGround}>
+                <View style={{ flexDirection: "row", justifyContent: 'center'}}>
+                    <Text style={styles.text}>  Próximas Aulas:  </Text>
+                </View>
+            <Card style={styles.card}>
                 <Card.Content>  
                     <View style={{ flexDirection: "row", alignItems: 'center'}}>
                         <Avatar.Image size={60}></Avatar.Image>
@@ -20,8 +24,8 @@ function Classes(){
                         Quarta 
                     </Paragraph>
                 </Card.Content>
-            </Card>
-            <Card>
+            </Card >
+            <Card style={styles.card}>
                 <Card.Content>  
                     <View style={{ flexDirection: "row", alignItems: 'center'}}>
                         <Avatar.Image size={60}></Avatar.Image>
@@ -30,6 +34,20 @@ function Classes(){
                     <Paragraph>
                         Aulas de Redação do centro Tal às 10h {'\n'}
                         Terça
+                    </Paragraph>
+                </Card.Content>
+            </Card>
+
+            <View style={{ flexDirection: "row", justifyContent: 'center'}}>
+                    <Text style={styles.text}>  Interesses sem professores:  </Text>
+            </View>
+            <Card style={styles.card}>
+                <Card.Content>  
+                    <View style={{ flexDirection: "row", alignItems: 'center'}}>
+                        <Title>Matérias Pendentes</Title>
+                    </View>
+                    <Paragraph>
+                        Química , Biologia e Física {'\n'}
                     </Paragraph>
                 </Card.Content>
             </Card>

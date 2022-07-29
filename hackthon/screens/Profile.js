@@ -1,35 +1,9 @@
-import { View , ScrollView, Text, SafeAreaView, Pressable, Button} from 'react-native';  
-import { Avatar } from 'react-native-paper';
-import { TextInput } from 'react-native-paper';
+import { View , ScrollView, Text} from 'react-native';  
+import { Avatar, Button, TextInput } from 'react-native-paper';
 import Header from './auxiliar/Header';
 import React from 'react';
+import { styles } from './auxiliar/Styles';
 
-const styles = {
-    borderSettings : {border: '1px solid black'},
-    header : {alignItems: 'center',justifyContent: 'center',backgroundColor: 'aquamarine',display:'flex' },
-    titleH1 : {fontSize: 30},
-    titleH2 : {fontSize: 20},
-    boxForms : {display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid black'},
-    input: {
-      height: 40,
-      margin: 12,
-      borderWidth: 1,
-      padding: 10,
-    },
-    boxButtons : {
-        display: 'flex',
-        justifyContent: 'center',
-        width : "60%",
-        marginLeft : "20%",
-        marginTop : "0.5rem",
-        marginBottom : "0.5rem"
-    },  
-    textInput: {
-        height: 50, 
-        marginBottom: "1rem" 
-
-    }    
-}
 
 
 
@@ -42,15 +16,15 @@ function Profile(props) {
 
     return (
         <>
-            <ScrollView>
+            <ScrollView style={styles.backGround}>
                 <Header></Header>
 
 
                 <View style={{flexDirection:"Column" , justifyContent: 'space-around', width: '100%', alignItems: 'center'}}>
 
-                    <Avatar.Image size={60} style={styles.Buttons}/>
+                    <Avatar.Image size={60} />
 
-                    <Text style={styles.Buttons}>( NOME )</Text>  
+                    <Text >( NOME )</Text>  
 
                 </View>
                 
@@ -208,26 +182,26 @@ function Profile(props) {
 
 
                 { change ?
-
-                    <Button
-                        title= "Alterar Dados"
-                        onPress={() =>setChange(false)}>
-                    </Button>
+                    <View style={styles.boxButtons}>
+                        <View style={styles.buttons}>
+                            <Button
+                                color={'#272343'}
+                                onPress={() =>setChange(false)}>
+                                    Alterar
+                            </Button>
+                        </View>
+                    </View>
                 :
-                    <Button
-                    title= "Ok"
-                    onPress={() =>setChange(true)}>
-                    </Button>
-
+                    <View style={styles.boxButtons}>
+                        <View style={styles.buttons}>
+                            <Button
+                            color={'#272343'}
+                            onPress={() =>setChange(true)}>
+                                Ok
+                            </Button>
+                        </View>
+                    </View>
                 }
-
-
-
-                <Text> 
-                    <Text>Referências</Text>
-                </Text>
-
-
             </ScrollView>
         </>
 

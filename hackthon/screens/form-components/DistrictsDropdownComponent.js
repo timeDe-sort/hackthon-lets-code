@@ -50,6 +50,7 @@ const DistrictDropdown = () => {
         setValue={setValue}
         setItems={setItems}
         searchable={true}
+        dropDownDirection="TOP"
         searchTextInputProps={{
             maxLength: 25
         }}

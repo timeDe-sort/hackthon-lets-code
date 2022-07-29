@@ -1,27 +1,10 @@
 import React from 'react';
 
-import { Button , View , ScrollView, Text, SafeAreaView } from 'react-native';  
+import { View,ScrollView } from 'react-native';  
 import Header from './auxiliar/Header';
-import { TextInput } from 'react-native-paper';
+import { TextInput, Button } from 'react-native-paper';
+import { styles } from './auxiliar/Styles';
 
-
-const styles = {
-  header : {alignItems: 'center', justifyContent: 'center', backgroundColor: 'aquamarine', display:'flex' },
-  titleH1 : {fontSize: 30},
-  titleH2 : {fontSize: 20},
-  boxForms : { justifyContent: 'space-around', height: "80%", width: "80%",marginLeft:"10%"},
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
-  },
-  textInput: {
-    height: 50, 
-    marginBottom: "1rem" ,
-    marginTop: "1rem"
-}    
-}
 
 function Login(props) {
   const {navigation,route} = props;
@@ -33,32 +16,35 @@ function Login(props) {
     
   return (
     <>
-      <Header ></Header>
-      <View style={styles.boxForms}>
-
-        
-          <View>
-            <TextInput
-              style={styles.textInput}
-              onChangeText={setLogin}
-              value={login}
-              label="Login"
-            />
-            <TextInput
-              style={styles.textInput}
-              onChangeText={setPassword}
-              value={password}
-              secureTextEntry={true}
-              textContentType="password"
-              label="Senha"
-            />
+     <ScrollView style={styles.backGround}>
+        <Header ></Header>
+        <View style={styles.boxForms}>
+            <View>
+              <TextInput
+                style={styles.textInputLogin}
+                onChangeText={setLogin}
+                value={login}
+                label="Login"
+                />
+              <TextInput
+                style={styles.textInputLogin}
+                onChangeText={setPassword}
+                value={password}
+                secureTextEntry={true}
+                textContentType="password"
+                label="Senha"
+                />
+              </View>
+          <View style={styles.boxButtons}>
+            <View style={styles.buttons}>
+            <Button color={'#272343'} onPress={() => navigation.navigate('LoggedScreen',{type: type})}>
+              Entrar
+            </Button>
             </View>
+          </View>
 
         </View>
-        <Button title="Entrar"onPress={() => navigation.navigate('LoggedScreen',{type: type})} />
-        {/* <Text style={styles.header}>
-        Referências
-        </Text> */}
+      </ScrollView>
     </>
   );
 }

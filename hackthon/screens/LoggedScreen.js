@@ -1,32 +1,8 @@
-import { Button , View , ScrollView, Text, SafeAreaView,TextInput, Pressable} from 'react-native';  
+import {View , ScrollView, Text } from 'react-native';  
 import { Avatar } from 'react-native-paper';
 import Header from './auxiliar/Header';
-import AboutUs from './AboutUs';
-
-const styles = {
-    header : {alignItems: 'center', justifyContent: 'center', backgroundColor: 'aquamarine', display:'flex' },
-    titleH1 : {fontSize: 30},
-    titleH2 : {fontSize: 20},
-    boxForms : {display: 'flex', alignItems: 'center', justifyContent: 'center', border: "1px solid black"},
-    input: {
-      height: 40,
-      margin: 12,
-      borderWidth: 1,
-      padding: 10,
-    },
-    boxButtons : {
-        display: 'flex',
-        justifyContent: 'center',
-        width : "60%",
-        marginLeft : "20%",
-        marginTop : "1.5rem",
-    },    
-    buttons : {
-        margin: "10%",
-        height: "30"
-        
-    }
-}
+import { Button } from 'react-native-paper';
+import { styles } from './auxiliar/Styles';
 
 
 function LoggedScreen(props) {
@@ -38,7 +14,7 @@ function LoggedScreen(props) {
     
     return (
         <>
-            <ScrollView>
+            <ScrollView style={styles.backGround} >
                 {
                     <Header></Header>
                 }
@@ -54,73 +30,96 @@ function LoggedScreen(props) {
 
 
                 { (type === 1) &&
-                
-                <View style={styles.boxButtons}>
-                    <View style={styles.buttons}>
-                        <Button   title= "Perfil" onPress={() => navigation.navigate('Profile', {type: 1})} />
+                <>
+                    
+                    <View style={styles.boxButtons}>
+                        <View style={styles.buttons}>
+                            <Button   color={'#272343'} onPress={() => navigation.navigate('Profile', {type: 1})}>
+                                Perfil
+                            </Button>
+                        </View>
                     </View>
-                    <View style={styles.buttons}>
-                        <Button   title= "Acompanhamento" onPress={() => navigation.navigate('Accompaniment',{type: 1})} />
+                    <View style={styles.boxButtons}>
+                        <View style={styles.buttons}>
+                            <Button   color={'#272343'} onPress={() => navigation.navigate('Accompaniment',{type: 1})}>
+                                Acompanhamento
+                            </Button>
+                        </View>
                     </View>
-                    <View style={styles.buttons}>
-                        <Button   title= "Sobre nós" onPress={() => navigation.navigate('AboutUs')} />
-                    </View>
-                </View>
+
+                </>
                 }
 
                 { (type === 0) &&
+                <>       
                     <View style={styles.boxButtons}>
                         <View style={styles.buttons}>
-                            <Button   title= "Perfil" onPress={() => navigation.navigate('Profile',{type: 0})} />
-                        </View>
-                        <View style={styles.buttons}>
-                            <Button   title= "Acompanhamento" onPress={() => navigation.navigate('Accompaniment',{type: 0})} />
-                        </View>
-                        <View style={styles.buttons}>
-                            <Button   title= "Sobre nós" onPress={() => navigation.navigate('AboutUs')} />
+                            <Button   color={'#272343'} onPress={() => navigation.navigate('Profile',{type: 0})}>
+                                Perfil
+                            </Button>
                         </View>
                     </View>
+                    <View style={styles.boxButtons}>
+                        <View style={styles.buttons}>
+                            <Button   color={'#272343'} onPress={() => navigation.navigate('Accompaniment',{type: 0})}>
+                                Acompanhamento
+                            </Button>
+                        </View>
+                    </View>
+                </>
              
 
                 }
 
                 {(type ===3) && 
+                <>
+                
                     <View style={styles.boxButtons}>
                         <View style={styles.buttons}>
-                            <Button   title= "Perfil" onPress={() => navigation.navigate('Profile',{type:3})} />
+                            <Button   color={'#272343'} onPress={() => navigation.navigate('Profile',{type:3})}>
+                                Perfil
+                            </Button>
                         </View>
+                    </View>
+                    <View style={styles.boxButtons}>
                         <View style={styles.buttons}>
-                            <Button   title= "Aulas" onPress={() => navigation.navigate('Classes',{type:3})} />
-                        </View>
-                        <View style={styles.buttons}>
-                        <Button  title= "Sobre nós" onPress={() => navigation.navigate('AboutUs')} />
+                            <Button   color={'#272343'} onPress={() => navigation.navigate('Classes',{type:3})}>
+                                Aulas
+                            </Button>
                         </View>
                     </View> 
+
+                </>
   
                 }
 
                 {(type ===2) &&
                     <View style={styles.boxButtons}>
                         <View style={styles.buttons}>
-                            <Button   title= "Alunos" onPress={() => navigation.navigate('Students')} />
+                            <Button   color={'#272343'} onPress={() => navigation.navigate('Students')}>
+                                Alunos
+                            </Button>
                         </View>
                         <View style={styles.buttons}>
-                            <Button   title= "Professores e Aulas" onPress={() => navigation.navigate('TeacherAndClasses')} />
+                            <Button   color={'#272343'} onPress={() => navigation.navigate('TeacherAndClasses')}>
+                                Aulas e Professores
+                            </Button>
                         </View>
                         <View style={styles.buttons}>
-                            <Button   title= "Doadores" onPress={() => navigation.navigate('Donators')} />
-                        </View>
-                            <View style={styles.buttons}>
-                        <Button  title= "Sobre nós" onPress={() => navigation.navigate('AboutUs')} />
+                            <Button   color={'#272343'} onPress={() => navigation.navigate('Donators')}>
+                                Doações
+                            </Button>
                         </View>
                      </View> 
                 }
-            {
-                // TAMBÉM IRÁ VIRAR UM COMPONENTE
-                <Text> 
-                    <Text>Referências</Text>
-                </Text>
-            }
+
+                    <View style={styles.boxButtons}>
+                        <View style={styles.buttons}>
+                            <Button   color={'#272343'} onPress={() => navigation.navigate('AboutUs')}>
+                                Sobre nós
+                            </Button>
+                        </View>
+                    </View>
 
             </ScrollView>
         </>
