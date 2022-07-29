@@ -1,56 +1,56 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm"
 
-export class DoadoresEndereco1658957907529 implements MigrationInterface {
+export class DonatorsAddress1658957907529 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: 'doadores_endereco',
+                name: 'donators_address',
                 columns: [
                     {
-                        name: 'endereco_id',
-                        type: 'uuid',
+                        name: 'address_id',
+                        type: 'int',
                         isPrimary: true,
                         isNullable: false
                     },
                     {
-                        name: 'doador_id',
-                        type: 'uuid',
+                        name: 'donator_id',
+                        type: 'int',
                         isNullable: false
                     },
                     {
-                        name: 'rua',
-                        type: 'varchar',
+                        name: 'street',
+                        type: 'varchar(50)',
                         isNullable: false
                     },
                     {
-                        name: 'numero',
-                        type: 'varchar',
+                        name: 'number',
+                        type: 'smallint',
                         isNullable: false
                     },
                     {
-                        name: 'complemento',
-                        type: 'varchar',
+                        name: 'address_complement',
+                        type: 'varchar(30)',
                         isNullable: true
                     },
                     {
-                        name: 'cidade_id',
-                        type: 'uuid',
+                        name: 'city_id',
+                        type: 'smallint',
                         isNullable: false
                     },
                 ],
                 foreignKeys: [
                     {
-                        name: 'fk_voluntario_endereco',
-                        columnNames: ['doador_id'],
-                        referencedTableName: 'doadores',
-                        referencedColumnNames: ['doador_id']
+                        name: 'fk_donator_address',
+                        columnNames: ['donator_id'],
+                        referencedTableName: 'donators',
+                        referencedColumnNames: ['donator_id']
                     },
                     {
-                        name: 'fk_cidade_endereco',
-                        columnNames: ['cidade_id'],
-                        referencedTableName: 'cidades',
-                        referencedColumnNames: ['cidade_id']
+                        name: 'fk_city_address',
+                        columnNames: ['city_id'],
+                        referencedTableName: 'cities',
+                        referencedColumnNames: ['city_id']
                     },
                 ]
             })

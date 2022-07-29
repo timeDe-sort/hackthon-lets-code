@@ -1,20 +1,20 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm"
 
-export class Estados1658957160023 implements MigrationInterface {
+export class States1658957160023 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: 'estados',
+                name: 'States',
                 columns: [
                     {
-                        name: 'estado_id',
-                        type: 'uuid',
+                        name: 'state_id',
+                        type: 'smallint',
                         isPrimary: true
                     },
                     {
-                        name: 'estado_nome',
-                        type: 'varchar,',
+                        name: 'state_name',
+                        type: 'varchar(20)',
                         isUnique: true
                     },
                     {
@@ -28,7 +28,7 @@ export class Estados1658957160023 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable('estados');
+        await queryRunner.dropTable('states');
     }
 
 }

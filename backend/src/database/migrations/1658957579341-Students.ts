@@ -5,58 +5,59 @@ export class Estudantes1658957579341 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: 'estudantes',
+                name: 'students',
                 columns: [
                     {
-                        name: 'estudante_id',
-                        type: 'uuid',
+                        name: 'student_id',
+                        type: 'int',
                         isPrimary: true,
                         isNullable: false
                     },
                     {
-                        name: 'nome_completo',
-                        type: 'varchar',
+                        name: 'name',
+                        type: 'varchar(50)',
                         isNullable: false
                     },
                     {
-                        name: 'data_nascimento',
+                        name: 'birth_date',
                         type: 'date',
                         isNullable: false
                     },
                     {
-                        name: 'instituicao_id',
-                        type: 'uuid',
+                        name: 'service_center_id',
+                        type: 'int',
                         isNullable: false
                     },
                     {
-                        name: 'serie_id',
-                        type: 'uuid',
+                        name: 'school_year',
+                        type: 'enum',
+                        enum: ['1º ano (fundamental)', '2º ano (fundamental)', '3º ano (fundamental)', '4º ano (fundamental)', '5º ano (fundamental)', '6º ano (fundamental)', '7º ano (fundamental)', '7º ano (fundamental)', '8º ano (fundamental)', '9º ano (fundamental)', '1º ano (ensino médio)', '2º ano (ensino médio)', '3º ano (ensino médio)'],
+                    },
+                    {
+                        name: 'period',
+                        type: 'enum',
+                        enum: ['Matutino', 'Vespertino', 'Noturno', 'Integral'], 
                         isNullable: false
                     },
                     {
-                        name: 'periodo_id',
-                        type: 'uuid',
+                        name: 'mother_name',
+                        type: 'varchar(50)',
                         isNullable: false
                     },
                     {
-                        name: 'nome_mae',
-                        type: 'varchar',
-                        isNullable: false
-                    },
-                    {
-                        name: 'codigo_familiar',
+                        name: 'family_code',
                         type: 'char(8)',
                         isNullable: false
                     },
                     {
                         name: 'email',
-                        type: 'varchar',
+                        type: 'varchar(50)',
                         isNullable: false,
                         isUnique: true
                     },
                     {
-                        name: 'senha',
-                        type: 'varchar',
+                        name: 'password',
+                        type: 'char(64)',
                         isNullable: false
                     },
                     {
@@ -68,23 +69,11 @@ export class Estudantes1658957579341 implements MigrationInterface {
                 ],
                 foreignKeys: [
                     {
-                        name: 'fk_estudante_instituicao',
-                        columnNames: ['instituicao_id'],
-                        referencedTableName: 'instituicoes',
-                        referencedColumnNames: ['instituicao_id'],
+                        name: 'fk_student_service_center',
+                        columnNames: ['service_center_id'],
+                        referencedTableName: 'service_centers',
+                        referencedColumnNames: ['service_center_id'],
                     },
-                    {
-                        name: 'fk_estudante_serie',
-                        columnNames: ['serie_id'],
-                        referencedTableName: 'series',
-                        referencedColumnNames: ['serie_id'],
-                    },
-                    {
-                        name: 'fk_estudante_periodo',
-                        columnNames: ['periodo_id'],
-                        referencedTableName: 'periodos',
-                        referencedColumnNames: ['periodo_id']
-                    }
                 ]
             })
         );

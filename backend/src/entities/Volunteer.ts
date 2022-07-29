@@ -4,7 +4,7 @@ import { ServiceCenter } from "./ServiceCenter";
 
 @Entity('volunteer')
 export class Volunteer {
-  @PrimaryColumn({ type: 'smallint' })
+  @PrimaryColumn({ type: 'int' })
   volunteer_id: number;
 
   @Column({ type: 'varchar', length: 50 })

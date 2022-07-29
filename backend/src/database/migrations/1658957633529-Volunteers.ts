@@ -1,89 +1,84 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm"
 
-export class Voluntarios1658957633529 implements MigrationInterface {
+export class Volunteers1658957633529 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: 'voluntarios',
+                name: 'volunteers',
                 columns: [
                     {
-                        name: 'voluntario_id',
-                        type: 'uuid',
+                        name: 'volunteer_id',
+                        type: 'int',
                         isPrimary: true,
                         isNullable: false
                     },
                     {
-                        name: 'voluntario_nome',
-                        type: 'varchar',
+                        name: 'volunteer_name',
+                        type: 'varchar(50)',
                         isNullable: false
                     },
                     {
-                        name: 'data_nascimento',
+                        name: 'birth_date',
                         type: 'date',
                         isNullable: false
                     },
                     {
-                        name: 'universidade',
-                        type: 'varchar',
+                        name: 'university',
+                        type: 'varchar(50)',
                         isNullable: true
                     },
                     {
-                        name: 'curso',
-                        type: 'varchar',
+                        name: 'degree',
+                        type: 'varchar(50)',
                         isNullable: true
                     },
                     {
-                        name: 'instituicao_id',
-                        type: 'uuid',
+                        name: 'service_center_id',
+                        type: 'int',
                         isNullable: false
                     },
                     {
-                        name: 'periodo_id',
-                        type: 'uuid',
+                        name: 'period',
+                        type: 'enum',
+                        enum: ['Matutino', 'Vespertino', 'Noturno', 'Integral'], 
                         isNullable: false
                     },
                     {
-                        name: 'disciplina',
-                        type: 'varchar',
+                        name: 'subject',
+                        type: 'varchar(20)',
                         isNullable: false
                     },
                     {
-                        name: 'observacoes',
-                        type: 'varchar',
+                        name: 'observation',
+                        type: 'varchar(500)',
                         isNullable: false
                     },
                     {
                         name: 'email',
-                        type: 'varchar',
+                        type: 'varchar(50)',
                         isNullable: false,
                         isUnique: true
                     },
                     {
-                        name: 'senha',
-                        type: 'varchar',
+                        name: 'password',
+                        type: 'char(64)',
                         isNullable: false
                     },
                     {
                         name: 'cpf',
-                        type: 'char',
+                        type: 'char(11)',
                         isNullable: false,
                         isUnique: true
                     }
                 ],
                 foreignKeys: [
                     {
-                        name: 'fk_voluntario_instituicao',
-                        columnNames: ['instituicao_id'],
-                        referencedTableName: 'instituicoes',
-                        referencedColumnNames: ['instituicao_id'],
+                        name: 'fk_volunteer_service_center',
+                        columnNames: ['service_center_id'],
+                        referencedTableName: 'service_centers',
+                        referencedColumnNames: ['service_center_id'],
                     },
-                    {
-                        name: 'fk_voluntario_periodo',
-                        columnNames: ['periodo_id'],
-                        referencedTableName: 'periodos',
-                        referencedColumnNames: ['periodo_id']
-                    }
                 ]
             })
         );
