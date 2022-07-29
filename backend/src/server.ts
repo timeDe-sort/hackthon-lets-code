@@ -2,10 +2,12 @@ import 'reflect-metadata';
 import express from 'express';
 import AppDataSource from "./database/dataSource"
 import * as dotenv from 'dotenv';
-import { routes } from './routes';
+import { routes } from './routes/index.routes';
 dotenv.config();
 
 const app = express();
+
+app.use(express.json());
 
 AppDataSource.initialize()
 .then(() => {
