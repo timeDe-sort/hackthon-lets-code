@@ -71,7 +71,7 @@ model Student {
   service_center ServiceCenter @relation(fields: [service_center_id], references: [id])
   service_center_id Int
   created_at DateTime @default(now())
-  period String[]
+  period Period 
   student_address StudentAddress[]
   donation Donation[]
 
@@ -162,8 +162,25 @@ model Donation {
   student_id Int
   service_center ServiceCenter @relation(fields: [service_center_id], references: [id])
   service_center_id Int
-  support_type String[]
+  support_type SupportType
   created_at DateTime @default(now())
 
   @@map("donations")
+}
+
+enum SchoolYear {
+  FIRST_YEAR
+  SECOND_YEAR
+  THIRD_YEAR
+}
+
+enum SupportType {
+  FINANCIAL
+  MATERIAL
+}
+
+enum Period {
+  MORNING
+  AFTERNOON
+  FULLTIME
 }
