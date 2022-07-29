@@ -7,9 +7,7 @@ export default async function DeleteDonationsController(req: Request, res: Respo
   
   const result = await service.execute({ donation_id: id });
 
-  if (result instanceof Error) {
-    return res.status(400).json(result.message);
-  }
+  if (result instanceof Error) return res.status(400).json(result.message);
 
   return res.status(202).end;
 }
