@@ -216,7 +216,7 @@ function RegisterUser(props) {
                             </View>
                         </View>}
 
-                        {(params.type===1) && // UNIVERSITÁRIO
+                        {(params.type===1) && // VOLUNTÁRIO
                         
                         <View>    
                             <View>

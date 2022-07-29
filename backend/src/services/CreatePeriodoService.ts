@@ -1,22 +1,22 @@
 import AppDataSource from "../database/dataSource"
-import { Periodo } from "../entities/Periodo";
+import { Period } from "../entities/Period";
 
-type PeriodoRequest = {
-  nome: string;
+type PeriodRequest = {
+  name: string;
 }
 
-export class CreatePeriodoService {
-  async execute({ nome }:PeriodoRequest): Promise<Periodo | Error> {
-    const repo = AppDataSource.getRepository(Periodo);    
+export class CreatePeriodService {
+  async execute({ name }:PeriodRequest): Promise<Period | Error> {
+    const repo = AppDataSource.getRepository(Period);    
 
-    if (await repo.findOneBy({ nome })) {
-      return new Error('Periodo já cadastrado.')
+    if (await repo.findOneBy({ name })) {
+      return new Error('Período já cadastrado.')
     }
 
-    const periodo = repo.create({ nome });
+    const period = repo.create({ name });
 
-    await repo.save(periodo);
+    await repo.save(period);
 
-    return periodo;
+    return period;
   }
 }

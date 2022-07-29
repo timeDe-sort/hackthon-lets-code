@@ -1,5 +1,5 @@
 import AppDataSource from "../database/dataSource"
-import { Estudante } from "../entities/Estudante"
+import { Estudante } from "../entities/Student"
 
 type EstudanteRequest = {
   nome_completo: string,
