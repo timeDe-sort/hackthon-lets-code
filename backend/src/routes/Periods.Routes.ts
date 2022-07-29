@@ -1,7 +1,7 @@
-import CreatePeriodoController from "../controllers/Periods/CreatePeriodoController";
-import DeletePeriodController from "../controllers/Periods/DeletePeriodController";
-import GetPeriodsController from "../controllers/Periods/GetPeriodController";
-import UpdatePeriodController from "../controllers/Periods/UpdatePeriodoController";
+import CreatePeriodoController from "../controllers/Students/CreateStudentController";
+import DeletePeriodController from "../controllers/Students/DeleteStudentController";
+import GetPeriodsController from "../controllers/Students/GetStudentController";
+import UpdatePeriodController from "../controllers/Students/UpdateStudentController";
 import express from 'express';
 
 const periodRoutes = express.Router();

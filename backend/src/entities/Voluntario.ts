@@ -1,12 +1,11 @@
-import { Entity, Column, PrimaryColumn, CreateDateColumn, ManyToOne, JoinColumn } from "typeorm";
+import { Entity, Column, PrimaryColumn, CreateDateColumn, ManyToOne, JoinColumn, PrimaryGeneratedColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Instituicao } from "./Instituicao";
 import { Periodo } from "./Periodo";
-import { Serie } from "./Series";
 
 @Entity('voluntarios')
 export class Voluntario {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   voluntario_id: string;
 
   @Column()

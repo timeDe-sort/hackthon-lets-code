@@ -9,7 +9,7 @@ export class Cidades1658957260023 implements MigrationInterface {
                 columns: [
                     {
                         name: 'cidade_id',
-                        type: 'uuid',
+                        type: 'smallint',
                         isPrimary: true
                     },
                     {

@@ -9,7 +9,7 @@ export class Estados1658957160023 implements MigrationInterface {
                 columns: [
                     {
                         name: 'estado_id',
-                        type: 'uuid',
+                        type: 'smallint',
                         isPrimary: true
                     },
                     {

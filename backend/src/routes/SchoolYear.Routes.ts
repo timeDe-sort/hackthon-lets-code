@@ -1,8 +1,8 @@
 import express from 'express';
-import CreateSchoolYearController from "../controllers/SchoolYear/CreateSchoolYearController";
-import DeleteSchoolYearController from '../controllers/SchoolYear/DeleteSchoolYearController';
-import GetSchoolYearsController from '../controllers/SchoolYear/GetSchoolYearsController';
-import UpdateSchoolYearController from '../controllers/SchoolYear/UpdateSchoolYearController';
+import CreateSchoolYearController from "../controllers/Donators/CreateDonatorController";
+import DeleteSchoolYearController from '../controllers/Donators/DeleteDonatorController';
+import GetSchoolYearsController from '../controllers/Donators/GetDonatorController';
+import UpdateSchoolYearController from '../controllers/Donators/UpdateDonatorController';
 
 const schoolYearRoutes = express.Router();
 
