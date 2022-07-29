@@ -12,7 +12,10 @@ import RegisterServiceCenter from './screens/RegisterServiceCenter';
 import Profile from './screens/Profile';
 import LoggedScreen from './screens/LoggedScreen';
 import Accompaniment from './screens/Accompaniment';
-
+import Classes from './screens/Classes';
+import Students from './screens/Students';
+import TeacherAndClasses from './screens/TeacherAndClasses';
+import Donators from './screens/Donators';
 
 const Stack = createStackNavigator();
 
@@ -28,6 +31,10 @@ function MyStack() {
       <Stack.Screen name="Profile" component={Profile} />
       <Stack.Screen name="LoggedScreen" component={LoggedScreen} />
       <Stack.Screen name="Accompaniment" component={Accompaniment} />
+      <Stack.Screen name="Classes" component={Classes} />
+      <Stack.Screen name="Students" component={Students} />
+      <Stack.Screen name="TeacherAndClasses" component={TeacherAndClasses} />
+      <Stack.Screen name="Donators" component={Donators} />
 
     </Stack.Navigator>
   );

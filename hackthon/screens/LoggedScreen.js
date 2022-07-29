@@ -1,7 +1,7 @@
 import { Button , View , ScrollView, Text, SafeAreaView,TextInput, Pressable} from 'react-native';  
 import { Avatar } from 'react-native-paper';
 import Header from './auxiliar/Header';
-
+import LoggedScreenDonator from './auxiliar/Donator';
 
 const styles = {
     header : {alignItems: 'center', justifyContent: 'center', backgroundColor: 'aquamarine', display:'flex' },
@@ -53,7 +53,7 @@ function LoggedScreen(props) {
                 </View>
 
 
-                { (type ===0 || type === 1) && // DOADOR E VOLUNTÁRIO
+                {/* { (type ===0 || type === 1) && // DOADOR E VOLUNTÁRIO
                     <View style={styles.boxButtons}>
                         <View style={styles.buttons}>
                             <Button   title= "Perfil" onPress={() => navigation.navigate('Profile', {type: params.type})} />
@@ -65,6 +65,13 @@ function LoggedScreen(props) {
                             <Button   title= "Sobre nós" onPress={() => navigation.navigate('LoginOuRegis')} />
                         </View>
                     </View>
+                } */}
+
+                { (type === 0) &&
+                    <LoggedScreenDonator>
+
+                    </LoggedScreenDonator>
+
                 }
 
                 {(type ===3) && // ALUNO
@@ -73,12 +80,9 @@ function LoggedScreen(props) {
                             <Button   title= "Perfil" onPress={() => navigation.navigate('Profile',{type: params.type})} />
                         </View>
                         <View style={styles.buttons}>
-                            <Button   title= "Aulas" onPress={() => navigation.navigate('LoginOuRegis')} />
+                            <Button   title= "Aulas" onPress={() => navigation.navigate('Classes')} />
                         </View>
                         <View style={styles.buttons}>
-                            <Button   title= "Centro" onPress={() => navigation.navigate('LoginOuRegis')} />
-                        </View>
-                            <View style={styles.buttons}>
                         <Button  title= "Sobre nós" onPress={() => navigation.navigate('LoginOuRegis')} />
                         </View>
                     </View> 
@@ -87,13 +91,13 @@ function LoggedScreen(props) {
                 {(type ===2) &&
                     <View style={styles.boxButtons}>
                         <View style={styles.buttons}>
-                            <Button   title= "Alunos" onPress={() => navigation.navigate('LoginOuRegis')} />
+                            <Button   title= "Alunos" onPress={() => navigation.navigate('Students')} />
                         </View>
                         <View style={styles.buttons}>
-                            <Button   title= "Professores e Aulas" onPress={() => navigation.navigate('LoginOuRegis')} />
+                            <Button   title= "Professores e Aulas" onPress={() => navigation.navigate('TeacherAndClasses')} />
                         </View>
                         <View style={styles.buttons}>
-                            <Button   title= "Doadores" onPress={() => navigation.navigate('LoginOuRegis')} />
+                            <Button   title= "Doadores" onPress={() => navigation.navigate('Donators')} />
                         </View>
                             <View style={styles.buttons}>
                         <Button  title= "Sobre nós" onPress={() => navigation.navigate('LoginOuRegis')} />

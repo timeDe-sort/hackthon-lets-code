@@ -4,6 +4,11 @@ import { Button , View , ScrollView, Text, SafeAreaView} from 'react-native';
 import { TextInput } from 'react-native-paper';
 import DropDownPicker from 'react-native-dropdown-picker';
 import Header from './auxiliar/Header';
+import BootstrapDatePickerComponent from './BootstrapDatePickerComponent';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+
+
 const styles = {
     borderSettings : {border: '1px solid black'},
     header : {alignItems: 'center',justifyContent: 'center',backgroundColor: 'aquamarine',display:'flex' },
@@ -95,6 +100,8 @@ function RegisterUser(props) {
     const [value, setValue] = React.useState(null);
     const [items, setItems] = React.useState(states);
 
+    const [startDate, setStartDate] = React.useState(new Date());
+
     function finishRegistration(){
         navigation.navigate('LoggedScreen', {type: params.type})
         setName("")
@@ -145,10 +152,14 @@ function RegisterUser(props) {
                             />
                         </View>
                         <View>
-                            <Text >Data de Nascimento:</Text>
+                            {/* <Text >Data de Nascimento:</Text>
                             <TextInput
                             style={styles.textInput}
-                            />
+                            /> */}
+                            <SafeAreaView style={styles.textInput}>
+                            <BootstrapDatePickerComponent /> 
+                                
+                            </SafeAreaView>
                         </View>
                         <View>
                             <TextInput
@@ -177,6 +188,7 @@ function RegisterUser(props) {
                             label="Observação"
                             />
                         </View>
+                        <SafeAreaView>
                         <DropDownPicker
                         open={open}
                         value={value}
@@ -185,6 +197,7 @@ function RegisterUser(props) {
                         setValue={setValue}
                         setItems={setItems}
                         searchable={true}
+                        dropDownDirection="TOP"
                         searchTextInputProps={{
                             maxLength: 25
                         }}
@@ -192,6 +205,7 @@ function RegisterUser(props) {
                             width: "20%",
                         }}
                         />
+                        </SafeAreaView>
                         {(params.type === 0) && // DOADOR
                         
                         <View>  
@@ -241,7 +255,7 @@ function RegisterUser(props) {
                                 label="Disciplina oferecida"
                                 />
                             </View>
-                            <View style={{flexDirection: "row"}}>
+                            <View style={{flexDirection: "row",justifyContent:'space-between'}}>
                                 <Text >Período:</Text>
                                 <Text>Matutino</Text>
                                 <Checkbox
@@ -379,6 +393,8 @@ function RegisterUser(props) {
                     Referências
                 </Text>
             </ScrollView>
+
+
 
 
         </>
