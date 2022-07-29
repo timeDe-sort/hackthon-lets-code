@@ -140,6 +140,7 @@ function RegisterUser(props) {
                             <StudentRegister>
                             </StudentRegister>
                         }
+
                         <View>
                             <TextInput
                             style={styles.textInput}
@@ -165,9 +166,6 @@ function RegisterUser(props) {
                 <Button title="Finalizar" onPress={finishRegistration} />
                 </View>
             
-                <Text style={styles.header}> 
-                    Referências
-                </Text>
             </ScrollView>
 
 
