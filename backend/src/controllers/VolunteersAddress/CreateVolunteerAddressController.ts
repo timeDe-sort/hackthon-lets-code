@@ -1,11 +1,14 @@
 import { Request, Response } from "express";
-import { CreateVolunteerAddressService } from "../../services/VolunteersAddress/CreateVolunteerAddressService";
+import { prismaClient } from "../../database/prismaClient";
 
 export default async function CreateVolunteerAddressController(req: Request, res: Response) {
-  const service = new CreateVolunteerAddressService();    
-  const result = await service.execute(req.body);
+  const { address_complement, number, street, city_id, volunteer_id } = req.body;
 
-  if (result instanceof Error) return res.status(400).json(result.message);
+  const volunteerAddress = await prismaClient.volunteerAddress.create({
+    data: { address_complement, number, street, city_id, volunteer_id }
+  });
 
-  return res.json(result);
+  if (volunteerAddress instanceof Error) return res.status(400).json(volunteerAddress.message);
+
+  return res.json(volunteerAddress);
 }

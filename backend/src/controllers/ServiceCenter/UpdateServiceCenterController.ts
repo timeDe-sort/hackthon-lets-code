@@ -1,14 +1,29 @@
 import { Request, Response } from "express";
-import { UpdateServiceCenterService } from "../../services/ServiceCenter/UpdateServiceCenterService";
+import { prismaClient } from "../../database/prismaClient";
 
 export default async function UpdateServiceCenterController(req: Request, res: Response) {
-  const service = new UpdateServiceCenterService();    
   const { id } = req.params;
-  const { service_center_name, cnpj, email, password } = req.body;
+  const { name, cnpj, email, password } = req.body;  
+
+  const findServiceCenterAddress = await prismaClient.serviceCenter.findFirst({
+    where: { id: Number(id) }
+  });
+
+  if (!findServiceCenterAddress) return res.status(400).json("Nenhum usuário encontrado.")
   
-  const result = await service.execute({ service_center_id: Number(id), service_center_name, cnpj, email, password });
+  const serviceCenter = await prismaClient.serviceCenter.update({ 
+    where: {
+      id: Number(id)
+    },
+    data: {
+      name: name ? name : findServiceCenterAddress.name,
+      cnpj: cnpj ? cnpj : findServiceCenterAddress.cnpj,
+      email: email ? email : findServiceCenterAddress.email,
+      password:  password ? password : findServiceCenterAddress.password
+    }
+  }); 
 
-  if (result instanceof Error) return res.status(400).json(result.message);
+  if (serviceCenter instanceof Error) return res.status(400).json(serviceCenter.message);
 
-  return res.json(result);
+  return res.json(serviceCenter);
 }

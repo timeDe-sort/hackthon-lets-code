@@ -1,9 +1,7 @@
 import { Request, Response } from "express";
-import { GetStudentsAddressService } from "../../services/StudentsAddress/GetStudentAddressService";
+import { prismaClient } from "../../database/prismaClient";
 
 export default async function GetStudentAddressController(req: Request, res: Response) {
-  const service = new GetStudentsAddressService();    
-  const periods = await service.execute();
-
-  return res.json(periods);
+  const studentAddress = await prismaClient.studentAddress.findMany();
+  return res.json(studentAddress);
 }

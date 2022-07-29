@@ -1,9 +1,7 @@
 import { Request, Response } from "express";
-import { GetServiceCenterAddressService } from "../../services/ServiceCenterAddress/GetServiceCenterAddressService";
+import { prismaClient } from "../../database/prismaClient";
 
 export default async function GetServiceCenterAddressController(req: Request, res: Response) {
-  const service = new GetServiceCenterAddressService();    
-  const periods = await service.execute();
-
-  return res.json(periods);
+  const serviceCenterAddress = await prismaClient.serviceCenterAddress.findMany();
+  return res.json(serviceCenterAddress);
 }

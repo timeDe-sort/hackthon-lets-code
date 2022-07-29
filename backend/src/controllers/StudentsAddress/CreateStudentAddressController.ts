@@ -1,11 +1,14 @@
 import { Request, Response } from "express";
-import { CreateStudentAddressService } from "../../services/StudentsAddress/CreateStudentAddressService";
+import { prismaClient } from "../../database/prismaClient";
 
 export default async function CreateStudentAddressController(req: Request, res: Response) {
-  const service = new CreateStudentAddressService();    
-  const result = await service.execute(req.body);
+  const { address_complement, number, street, city_id, student_id } = req.body;
 
-  if (result instanceof Error) return res.status(400).json(result.message);
+  const studentAddress = await prismaClient.studentAddress.create({
+    data: { address_complement, number, street, city_id, student_id }
+  });
 
-  return res.json(result);
+  if (studentAddress instanceof Error) return res.status(400).json(studentAddress.message);
+
+  return res.json(studentAddress);
 }

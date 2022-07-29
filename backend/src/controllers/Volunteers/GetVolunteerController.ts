@@ -1,9 +1,7 @@
 import { Request, Response } from "express";
-import { GetVolunteerService } from "../../services/Volunteers/GetVolunteersService";
+import { prismaClient } from "../../database/prismaClient";
 
 export default async function GetVolunteersController(req: Request, res: Response) {
-  const service = new GetVolunteerService();    
-  const periods = await service.execute();
-
-  return res.json(periods);
+  const volunteer = await prismaClient.volunteer.findMany();
+  return res.json(volunteer);
 }

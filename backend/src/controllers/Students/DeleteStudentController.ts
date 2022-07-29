@@ -1,13 +1,12 @@
 import { Request, Response } from "express";
-import { DeletePeriodService } from "../../services/Students/DeleteStudentService";
+import { prismaClient } from "../../database/prismaClient";
 
 export default async function DeleteStudentController(req: Request, res: Response) {
-  const service = new DeletePeriodService();    
   const { id } = req.params;
   
-  const result = await service.execute({ student_id: id });
+  const student = await prismaClient.student.delete({ where: { id: Number(id) }});
 
-  if (result instanceof Error) return res.status(400).json(result.message);
+  if (student instanceof Error) return res.status(400).json(student.message);
 
-  return res.status(202).end;
+  return res.status(202).json('Doador deletado com sucesso!').end;
 }

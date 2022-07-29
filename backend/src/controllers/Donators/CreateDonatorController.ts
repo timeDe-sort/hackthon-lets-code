@@ -1,11 +1,14 @@
 import { Request, Response } from "express";
-import { CreateDonatorService } from '../../services/Donators/CreateDonatorService'
+import { prismaClient } from "../../database/prismaClient";
 
 export default async function CreateDonatorController(req: Request, res: Response) {
-  const service = new CreateDonatorService();    
-  const result = await service.execute(req.body);
+  const { name, document, email, password } = req.body;
 
-  if (result instanceof Error) return res.status(400).json(result.message);
+  const donator = await prismaClient.donator.create({
+    data: { name, document, email, password }
+  })
 
-  return res.json(result);
+  if (donator instanceof Error) return res.status(400).json(donator.message);
+
+  return res.json(donator);
 }

@@ -1,9 +1,7 @@
 import { Request, Response } from "express";
-import { GetServiceCentersService } from "../../services/ServiceCenter/GetServiceCenterService";
+import { prismaClient } from "../../database/prismaClient";
 
 export default async function GetServiceCenterController(req: Request, res: Response) {
-  const service = new GetServiceCentersService();    
-  const serviceCenter = await service.execute();
-
+  const serviceCenter = await prismaClient.serviceCenter.findMany();
   return res.json(serviceCenter);
 }

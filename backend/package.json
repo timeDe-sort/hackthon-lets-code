@@ -4,10 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --transpile-only src/server.ts",
-    "typeorm": "ts-node-dev node_modules/typeorm/cli.js"
+    "dev": "ts-node-dev --exit-child --transpile-only --ignore-watch node_modules src/server.ts"
   },
   "dependencies": {
+    "@prisma/client": "^4.1.1",
     "body-parser": "^1.20.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
@@ -19,6 +19,7 @@
   "devDependencies": {
     "@types/express": "^4.17.13",
     "@types/uuid": "^8.3.4",
+    "prisma": "^4.1.1",
     "ts-node-dev": "^2.0.0",
     "typescript": "^4.7.4"
   }

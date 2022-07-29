@@ -1,11 +1,14 @@
 import { Request, Response } from "express";
-import { CreateVolunteerService } from "../../services/Volunteers/CreateVolunteerService";
+import { prismaClient } from "../../database/prismaClient";
 
 export default async function CreateVolunteerController(req: Request, res: Response) {
-  const service = new CreateVolunteerService();    
-  const result = await service.execute(req.body);
+  const { fullname, cpf, birth_date, email, password, university, degree, service_center_id, period, subject, observation } = req.body;
 
-  if (result instanceof Error) return res.status(400).json(result.message);
+  const volunteer = await prismaClient.volunteer.create({
+    data: { fullname, cpf, birth_date, email, password, university, degree, service_center_id, period, subject, observation }
+  });
 
-  return res.json(result);
+  if (volunteer instanceof Error) return res.status(400).json(volunteer.message);
+
+  return res.json(volunteer);
 }

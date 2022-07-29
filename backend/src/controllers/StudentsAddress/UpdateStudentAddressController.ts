@@ -1,16 +1,30 @@
 import { Request, Response } from "express";
-import { UpdateStudentAddressService } from "../../services/StudentsAddress/UpdateStudentAddressService";
+import { prismaClient } from "../../database/prismaClient";
 
 export default async function UpdateStudentAddressController(req: Request, res: Response) {
-  const service = new UpdateStudentAddressService();    
   const { id } = req.params;
-  const { student_id, street, number, address_complement, city_id } = req.body;
-  
-  const result = await service.execute({ address_id: parseInt(id), student_id, street, number, address_complement, city_id });
+  const { student_id, street, number, address_complement, city_id } = req.body;  
 
-  if (result instanceof Error) {
-    return res.status(400).json(result.message);
-  }
+  const findStudentAddress = await prismaClient.studentAddress.findFirst({
+    where: { id: Number(id) }
+  });
 
-  return res.json(result);
+  if (!findStudentAddress) return res.status(400).json("Nenhum usuário encontrado.")
+
+  const serviceCenterAddress = await prismaClient.studentAddress.update({ 
+    where: {
+      id: Number(id)
+    },
+    data: {
+      student_id: student_id ? student_id : findStudentAddress.student_id,
+      street: street ? street : findStudentAddress.street,
+      number: number ? number : findStudentAddress.number,
+      address_complement:  address_complement ? address_complement : findStudentAddress.address_complement,
+      city_id:  city_id ? city_id : findStudentAddress.city_id,
+    }
+  }); 
+
+  if (serviceCenterAddress instanceof Error) return res.status(400).json(serviceCenterAddress.message);
+
+  return res.json(serviceCenterAddress);
 }

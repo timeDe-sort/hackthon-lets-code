@@ -1,11 +1,14 @@
 import { Request, Response } from "express";
-import { CreateServiceCenterService } from "../../services/ServiceCenter/CreateServiceCenterService";
+import { prismaClient } from "../../database/prismaClient";
 
-export default async function CreateServiceCenterController(req: Request, res: Response) {
-  const service = new CreateServiceCenterService();    
-  const result = await service.execute(req.body);
+export default async function CreateServiceCenterAddresController(req: Request, res: Response) {
+  const { name, cnpj, email, password } = req.body;
 
-  if (result instanceof Error) return res.status(400).json(result.message);
+  const serviceCenter = await prismaClient.serviceCenter.create({
+    data: { name, cnpj, email, password }
+  });
 
-  return res.json(result);
+  if (serviceCenter instanceof Error) return res.status(400).json(serviceCenter.message);
+
+  return res.json(serviceCenter);
 }

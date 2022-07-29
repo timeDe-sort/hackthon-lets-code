@@ -1,14 +1,29 @@
 import { Request, Response } from "express";
-import { UpdateDonatorService } from "../../services/Donators/UpdateDonatorService";
+import { prismaClient } from "../../database/prismaClient";
 
 export default async function UpdateDonatorController(req: Request, res: Response) {
-  const service = new UpdateDonatorService();    
   const { id } = req.params;
-  const { donator_name, document, email, password } = req.body;  
+  const { name, document, email, password } = req.body;  
+
+  const findDonator = await prismaClient.donator.findFirst({
+    where: { id: Number(id) }
+  });
+
+  if (!findDonator) return res.status(400).json("Nenhum usuário encontrado.")
   
-  const result = await service.execute({ donator_id: Number(id), donator_name, document, email, password });
+  const donator = await prismaClient.donator.update({ 
+    where: {
+      id: Number(id)
+    },
+    data: {
+      name: name ? name : findDonator.name,
+      document: document ? document : findDonator.document,
+      email: email ? email : findDonator.email,
+      password:  password ? password : findDonator.password,
+    }
+  }); 
 
-  if (result instanceof Error) return res.status(400).json(result.message);
+  if (donator instanceof Error) return res.status(400).json(donator.message);
 
-  return res.json(result);
+  return res.json(donator);
 }

@@ -1,8 +1,7 @@
 import { Request, Response } from "express";
-import { GetDonatorsAddressService } from "../../services/DonatorsAddress/GetDonatorsAddressService";
+import { prismaClient } from "../../database/prismaClient";
 
 export default async function GetDonatorAddressController(req: Request, res: Response) {
-  const service = new GetDonatorsAddressService();    
-  const donatorsAddress = await service.execute();
+  const donatorsAddress = await prismaClient.donatorAddress.findMany();
   return res.json(donatorsAddress);
 }

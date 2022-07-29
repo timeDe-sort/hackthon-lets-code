@@ -1,8 +1,7 @@
 import { Request, Response } from "express";
-import { GetDonatorsService } from "../../services/Donators/GetDonatorsService";
+import { prismaClient } from "../../database/prismaClient";
 
 export default async function GetDonatorController(req: Request, res: Response) {
-  const service = new GetDonatorsService();    
-  const donators = await service.execute();
+  const donators = await prismaClient.donator.findMany();
   return res.json(donators);
 }

@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
-import { DeleteDonationService } from '../../services/Donations/DeleteDonationService'
+import { prismaClient } from "../../database/prismaClient";
 
 export default async function DeleteDonationsController(req: Request, res: Response) {
-  const service = new DeleteDonationService();    
   const { id } = req.params;
   
-  const result = await service.execute({ donation_id: id });
+  const donation = await prismaClient.donation.delete({ where: { id: Number(id) }});
 
-  if (result instanceof Error) return res.status(400).json(result.message);
+  if (donation instanceof Error) return res.status(400).json(donation.message);
 
-  return res.status(202).end;
+  return res.status(202).json('Doador deletado com sucesso!').end;
 }
+

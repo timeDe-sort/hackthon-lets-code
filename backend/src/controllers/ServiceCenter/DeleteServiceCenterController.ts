@@ -1,13 +1,12 @@
 import { Request, Response } from "express";
-import { DeleteServiceCenterService } from "../../services/ServiceCenter/DeleteServiceCenterService";
+import { prismaClient } from "../../database/prismaClient";
 
 export default async function DeleteServiceCenterController(req: Request, res: Response) {
-  const service = new DeleteServiceCenterService();    
   const { id } = req.params;
   
-  const result = await service.execute({ service_center_id: id });
+  const serviceCenter = await prismaClient.serviceCenter.delete({ where: { id: Number(id) }});
 
-  if (result instanceof Error) return res.status(400).json(result.message);
+  if (serviceCenter instanceof Error) return res.status(400).json(serviceCenter.message);
 
-  return res.status(202).end;
+  return res.status(202).json('Doador deletado com sucesso!').end;
 }
