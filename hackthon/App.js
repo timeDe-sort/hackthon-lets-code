@@ -16,6 +16,8 @@ import Classes from './screens/Classes';
 import Students from './screens/Students';
 import TeacherAndClasses from './screens/TeacherAndClasses';
 import Donators from './screens/Donators';
+import AboutUs from './screens/AboutUs';
+
 
 const Stack = createStackNavigator();
 
@@ -35,6 +37,7 @@ function MyStack() {
       <Stack.Screen name="Students" component={Students} />
       <Stack.Screen name="TeacherAndClasses" component={TeacherAndClasses} />
       <Stack.Screen name="Donators" component={Donators} />
+      <Stack.Screen name="AboutUs" component={AboutUs} />
 
     </Stack.Navigator>
   );

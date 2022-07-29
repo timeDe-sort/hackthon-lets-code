@@ -1,10 +1,7 @@
 import { Button , View , ScrollView, Text, SafeAreaView,TextInput, Pressable} from 'react-native';  
 import { Avatar } from 'react-native-paper';
 import Header from './auxiliar/Header';
-import { LoggedScreenDonator } from './auxiliar/Donator';
-import { LoggedScreenVolunteer } from './auxiliar/Volunteer';
-import { LoggedScreenStudent } from './auxiliar/Student';
-import { LoggedScreenServiceCenter } from './auxiliar/ServiceCenter';
+import AboutUs from './AboutUs';
 
 const styles = {
     header : {alignItems: 'center', justifyContent: 'center', backgroundColor: 'aquamarine', display:'flex' },
@@ -56,29 +53,67 @@ function LoggedScreen(props) {
                 </View>
 
 
-                { (type === 1) && 
-                    <LoggedScreenVolunteer>
-
-                    </LoggedScreenVolunteer>
+                { (type === 1) &&
+                
+                <View style={styles.boxButtons}>
+                    <View style={styles.buttons}>
+                        <Button   title= "Perfil" onPress={() => navigation.navigate('Profile', {type: 1})} />
+                    </View>
+                    <View style={styles.buttons}>
+                        <Button   title= "Acompanhamento" onPress={() => navigation.navigate('Accompaniment',{type: 1})} />
+                    </View>
+                    <View style={styles.buttons}>
+                        <Button   title= "Sobre nós" onPress={() => navigation.navigate('AboutUs')} />
+                    </View>
+                </View>
                 }
 
                 { (type === 0) &&
-                    <LoggedScreenDonator>
-
-                    </LoggedScreenDonator>
+                    <View style={styles.boxButtons}>
+                        <View style={styles.buttons}>
+                            <Button   title= "Perfil" onPress={() => navigation.navigate('Profile',{type: 0})} />
+                        </View>
+                        <View style={styles.buttons}>
+                            <Button   title= "Acompanhamento" onPress={() => navigation.navigate('Accompaniment',{type: 0})} />
+                        </View>
+                        <View style={styles.buttons}>
+                            <Button   title= "Sobre nós" onPress={() => navigation.navigate('AboutUs')} />
+                        </View>
+                    </View>
+             
 
                 }
 
                 {(type ===3) && 
-                    <LoggedScreenStudent>
-
-                    </LoggedScreenStudent>
+                    <View style={styles.boxButtons}>
+                        <View style={styles.buttons}>
+                            <Button   title= "Perfil" onPress={() => navigation.navigate('Profile',{type:3})} />
+                        </View>
+                        <View style={styles.buttons}>
+                            <Button   title= "Aulas" onPress={() => navigation.navigate('Classes',{type:3})} />
+                        </View>
+                        <View style={styles.buttons}>
+                        <Button  title= "Sobre nós" onPress={() => navigation.navigate('AboutUs')} />
+                        </View>
+                    </View> 
+  
                 }
 
                 {(type ===2) &&
-                    <LoggedScreenServiceCenter>
-
-                    </LoggedScreenServiceCenter>
+                    <View style={styles.boxButtons}>
+                        <View style={styles.buttons}>
+                            <Button   title= "Alunos" onPress={() => navigation.navigate('Students')} />
+                        </View>
+                        <View style={styles.buttons}>
+                            <Button   title= "Professores e Aulas" onPress={() => navigation.navigate('TeacherAndClasses')} />
+                        </View>
+                        <View style={styles.buttons}>
+                            <Button   title= "Doadores" onPress={() => navigation.navigate('Donators')} />
+                        </View>
+                            <View style={styles.buttons}>
+                        <Button  title= "Sobre nós" onPress={() => navigation.navigate('AboutUs')} />
+                        </View>
+                     </View> 
                 }
             {
                 // TAMBÉM IRÁ VIRAR UM COMPONENTE

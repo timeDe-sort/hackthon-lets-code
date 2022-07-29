@@ -79,22 +79,12 @@ export function VolunteerRegister(props){
 }
 
 
-export function LoggedScreenVolunteer(props){
+// export function LoggedScreenVolunteer(props){
 
 
-    return(
+//     return(
 
-        <View style={styles.boxButtons}>
-            <View style={styles.buttons}>
-                <Button   title= "Perfil" onPress={() => navigation.navigate('Profile', {type: params.type})} />
-            </View>
-            <View style={styles.buttons}>
-                <Button   title= "Acompanhamento" onPress={() => navigation.navigate('Accompaniment',{type: params.type})} />
-            </View>
-            <View style={styles.buttons}>
-                <Button   title= "Sobre nós" onPress={() => navigation.navigate('LoginOuRegis')} />
-            </View>
-        </View>
-    )
 
-}
+//     )
+
+// }
