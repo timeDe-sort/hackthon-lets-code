@@ -11,7 +11,7 @@ function Accompaniment(){
 
     return(
       <ScrollView style={styles.backGround}>
-        <Card>
+        <Card style={styles.card}>
           <Card.Content>  
               <View style={{ flexDirection: "row", alignItems: 'center'}}>
                   <Title>    Aluno Joãozinho</Title>

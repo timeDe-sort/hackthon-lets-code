@@ -1,8 +1,6 @@
 import * as React from 'react';
-import { Button, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
 import Login from './screens/Login';
 import HomeScreen from './screens/HomeScreen';
 import SelectRole from './screens/SelectRole';
@@ -17,6 +15,8 @@ import Students from './screens/Students';
 import TeacherAndClasses from './screens/TeacherAndClasses';
 import Donators from './screens/Donators';
 import AboutUs from './screens/AboutUs';
+import { TeamManager } from './screens/TeamManager';
+import { StudentProfileCenter } from './screens/StudentProfileCenter';
 
 
 const Stack = createStackNavigator();
@@ -38,7 +38,9 @@ function MyStack() {
       <Stack.Screen name="TeacherAndClasses" component={TeacherAndClasses} />
       <Stack.Screen name="Donators" component={Donators} />
       <Stack.Screen name="AboutUs" component={AboutUs} />
-
+      <Stack.Screen name="TeamManager" component={TeamManager} />
+      <Stack.Screen name="StudentProfileCenter" component={StudentProfileCenter} />
+      
     </Stack.Navigator>
   );
 }

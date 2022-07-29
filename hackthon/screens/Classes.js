@@ -1,7 +1,7 @@
 import { Avatar, Card, IconButton } from 'react-native-paper';
 import * as React from 'react';
 import { Title, Paragraph } from 'react-native-paper';
-import { Button , View , ScrollView, Text, SafeAreaView } from 'react-native';  
+import { View , Text, SafeAreaView } from 'react-native';  
 import { styles } from './auxiliar/Styles';
 
 function Classes(){

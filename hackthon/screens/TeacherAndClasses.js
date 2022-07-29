@@ -1,14 +1,11 @@
-import { Avatar, Card } from 'react-native-paper';
+import { Avatar, Card, Title, Paragraph } from 'react-native-paper';
 import * as React from 'react';
-import { Title, Paragraph } from 'react-native-paper';
-import { View , SafeAreaView,Text, ScrollView  } from 'react-native';  
+import { View , SafeAreaView,Text, ScrollView ,Pressable } from 'react-native';  
 import { styles } from './auxiliar/Styles';
 
 
-function TeacherAndClasses(){
-
-
-
+function TeacherAndClasses(props){
+    const { navigation } = props
     return(
         <SafeAreaView style={styles.backGround}>
             <ScrollView>
@@ -18,8 +15,8 @@ function TeacherAndClasses(){
                 <Card style={styles.card}>
                     <Card.Content>  
                         <View style={{ flexDirection: "row", alignItems: 'center'}}>
-                            <Avatar.Image size={60}></Avatar.Image>
-                            <Title>    Professor Pedrinho</Title>
+                            <Avatar.Image size={60}  style={styles.avatar}></Avatar.Image>
+                            <Title>Professor Pedrinho</Title>
                         </View>
                         <Paragraph>
                             Turma da Matemática Qua e Sex{'\n'}
@@ -29,8 +26,8 @@ function TeacherAndClasses(){
                 <Card style={styles.card}>
                     <Card.Content>  
                         <View style={{ flexDirection: "row", alignItems: 'center'}}>
-                            <Avatar.Image size={60}></Avatar.Image>
-                            <Title>    Professora Rebecca</Title>
+                            <Avatar.Image size={60}  style={styles.avatar}></Avatar.Image>
+                            <Title>Professora Rebecca</Title>
                         </View>
                         <Paragraph>
                             Turma de Redação Seg e Qua {'\n'}
@@ -45,8 +42,12 @@ function TeacherAndClasses(){
                 <Card style={styles.card}>
                     <Card.Content>  
                         <View style={{ flexDirection: "row", alignItems: 'center'}}>
-                            <Avatar.Image size={60}></Avatar.Image>
-                            <Title>    Professora Paulinha</Title>
+                            <Avatar.Image size={60} style={styles.avatar}></Avatar.Image>
+                                <Pressable onPress={() => navigation.navigate('TeamManager')}>
+                                    <Title>
+                                        Professora Paulinha
+                                    </Title>
+                                </Pressable>
                         </View>
                         <Paragraph>
                             Turma da Física Qua e Sex 16h{'\n'}

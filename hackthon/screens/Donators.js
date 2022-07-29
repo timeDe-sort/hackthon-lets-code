@@ -2,16 +2,17 @@ import { Avatar, Card } from 'react-native-paper';
 import * as React from 'react';
 import { Title, Paragraph } from 'react-native-paper';
 import { View , SafeAreaView } from 'react-native';  
+import { styles } from './auxiliar/Styles';
 
 function Donators(){
 
 
 
     return(
-        <SafeAreaView>
+        <SafeAreaView style={styles.backGround}>
             <View>
             
-                <Card>
+                <Card style={styles.card}>
                     <Card.Content>  
                         <View style={{ flexDirection: "row", alignItems: 'center'}}>
                             <Avatar.Image size={60}></Avatar.Image>
@@ -23,7 +24,7 @@ function Donators(){
                     </Card.Content>
                 </Card>
             </View>
-            <Card>
+            <Card style={styles.card}>
                 <Card.Content>  
                     <View style={{ flexDirection: "row", alignItems: 'center'}}>
                         <Avatar.Image size={60}></Avatar.Image>

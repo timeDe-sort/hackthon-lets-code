@@ -43,6 +43,14 @@ export const styles = {
         backgroundColor: "#ffd803",
         borderRadius: "20px"
 
+    },
+    avatar: {
+        marginRight:'1.2rem'
+    },
+    listItem: {
+        justifyContent:'flex-start',
+        alignItem:'center',
+        border: "0.00001px solid gray",
     }
  
 }
