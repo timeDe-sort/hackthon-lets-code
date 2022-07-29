@@ -1,34 +1,34 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm"
 
-export class Doadores1658957680407 implements MigrationInterface {
+export class Donators1658957680407 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: 'doadores',
+                name: 'donators',
                 columns: [
                     {
-                        name: 'doador_id',
-                        type: 'uuid',
+                        name: 'donator_id',
+                        type: 'int',
                         isPrimary: true
                     },
                     {
-                        name: 'doador_nome',
-                        type: 'varchar'
+                        name: 'donator_name',
+                        type: 'varchar(50)'
                     },
                     {
-                        name: 'documento',
-                        type: 'varchar',
+                        name: 'document',
+                        type: 'varchar(14)',
                         isUnique: true
                     },
                     {
                         name: 'email',
-                        type: 'varchar',
+                        type: 'varchar(50)',
                         isUnique: true
                     },
                     {
-                        name: 'senha',
-                        type: 'varchar'
+                        name: 'password',
+                        type: 'char(64)'
                     }
                 ]
             }),
@@ -36,7 +36,7 @@ export class Doadores1658957680407 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable('doadores');
+        await queryRunner.dropTable('donators');
     }
 
 }

@@ -1,4 +1,4 @@
-import { Entity, PrimaryColumn, ManyToMany, JoinColumn, Column } from "typeorm";
+import { Entity, PrimaryColumn, ManyToMany, JoinColumn, Column, Timestamp } from "typeorm";
 import { Donator } from "./Donator";
 import { Student } from "./Student";
 import { ServiceCenter } from "./ServiceCenter";
@@ -27,4 +27,7 @@ export class Donation {
     enum: SupportType,
   })
   support_type: SupportType
+
+  @Column({ type: 'timestamp' })
+  created_at: Timestamp
 }
