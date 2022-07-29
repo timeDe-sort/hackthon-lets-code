@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { UpdateVolunteerAddressService } from "../../services/VolunteersAddress/UpdateVolunteerAddressService";
 
-export default async function UpdateVolunteerController(req: Request, res: Response) {
+export default async function UpdateVolunteerAddressController(req: Request, res: Response) {
   const service = new UpdateVolunteerAddressService();    
   const { id } = req.params;
   const { volunteer_id, street, number, address_complement, city_id } = req.body;

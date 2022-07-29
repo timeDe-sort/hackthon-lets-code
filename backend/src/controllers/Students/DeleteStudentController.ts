@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { DeletePeriodService } from "../../services/Students/DeleteStudentService";
 
-export default async function DeletePeriodController(req: Request, res: Response) {
+export default async function DeleteStudentController(req: Request, res: Response) {
   const service = new DeletePeriodService();    
   const { id } = req.params;
   

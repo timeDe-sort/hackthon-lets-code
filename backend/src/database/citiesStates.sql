@@ -1,4 +1,34 @@
-INSERT INTO cidades (cidade_id, cidade_nome, estado_id) VALUES
+
+INSERT INTO states (state_id, state_name, uf) VALUES
+(1, 'Acre', 'AC'),
+(2, 'Alagoas', 'AL'),
+(3, 'Amazonas', 'AM'),
+(4, 'Amapá', 'AP'),
+(5, 'Bahia', 'BA'),
+(6, 'Ceará', 'CE'),
+(7, 'Distrito Federal', 'DF'),
+(8, 'Espírito Santo', 'ES'),
+(9, 'Goiás', 'GO'),
+(10, 'Maranhão', 'MA'),
+(11, 'Minas Gerais', 'MG'),
+(12, 'Mato Grosso do Sul', 'MS'),
+(13, 'Mato Grosso', 'MT'),
+(14, 'Pará', 'PA'),
+(15, 'Paraíba', 'PB'),
+(16, 'Pernambuco', 'PE'),
+(17, 'Piauí', 'PI'),
+(18, 'Paraná', 'PR'),
+(19, 'Rio de Janeiro', 'RJ'),
+(20, 'Rio Grande do Norte', 'RN'),
+(21, 'Rondônia', 'RO'),
+(22, 'Roraima', 'RR'),
+(23, 'Rio Grande do Sul', 'RS'),
+(24, 'Santa Catarina', 'SC'),
+(25, 'Sergipe', 'SE'),
+(26, 'São Paulo', 'SP'),
+(27, 'Tocantins', 'TO');
+
+INSERT INTO cities (city_id, city_name, state_id) VALUES
 (1, 'Afonso Cláudio', 8),
 (2, 'Água Doce do Norte', 8),
 (3, 'Águia Branca', 8),
@@ -945,7 +975,7 @@ INSERT INTO cidades (cidade_id, cidade_nome, estado_id) VALUES
 (944, 'Ceres', 9),
 (945, 'Cezarina', 9),
 (946, 'Chapadão do Céu', 9),
-(947, 'Cidade Ocidental', 9),
+(947, 'city Ocidental', 9),
 (948, 'Cocalzinho de Goiás', 9),
 (949, 'Colinas do Sul', 9),
 (950, 'Córrego do Ouro', 9),
@@ -2067,7 +2097,7 @@ INSERT INTO cidades (cidade_id, cidade_nome, estado_id) VALUES
 (2066, 'Montezuma', 11),
 (2067, 'Morada Nova de Minas', 11);
 
-INSERT INTO cidades (cidade_id, cidade_nome, estado_id) VALUES
+INSERT INTO cities (city_id, city_name, state_id) VALUES
 (2068, 'Morro da Garça', 11),
 (2069, 'Morro do Pilar', 11),
 (2070, 'Munhoz', 11),
@@ -2861,7 +2891,7 @@ INSERT INTO cidades (cidade_id, cidade_nome, estado_id) VALUES
 (2858, 'Céu Azul', 18),
 (2859, 'Chopinzinho', 18),
 (2860, 'Cianorte', 18),
-(2861, 'Cidade Gaúcha', 18),
+(2861, 'city Gaúcha', 18),
 (2862, 'Clevelândia', 18),
 (2863, 'Colombo', 18),
 (2864, 'Colorado', 18),
@@ -3978,7 +4008,7 @@ INSERT INTO cidades (cidade_id, cidade_nome, estado_id) VALUES
 (3975, 'Cruzaltense', 23),
 (3976, 'Cruzeiro do Sul', 23);
 
-INSERT INTO cidades (cidade_id, cidade_nome, estado_id) VALUES
+INSERT INTO cities (city_id, city_name, state_id) VALUES
 (3977, 'David Canabarro', 23),
 (3978, 'Derrubadas', 23),
 (3979, 'Dezesseis de Novembro', 23),
@@ -5567,32 +5597,3 @@ INSERT INTO cidades (cidade_id, cidade_nome, estado_id) VALUES
 (5562, 'Tupiratins', 27),
 (5563, 'Wanderlândia', 27),
 (5564, 'Xambioá', 27);
-
-INSERT INTO estados (estado_id, estado_nome, uf) VALUES
-(1, 'Acre', 'AC'),
-(2, 'Alagoas', 'AL'),
-(3, 'Amazonas', 'AM'),
-(4, 'Amapá', 'AP'),
-(5, 'Bahia', 'BA'),
-(6, 'Ceará', 'CE'),
-(7, 'Distrito Federal', 'DF'),
-(8, 'Espírito Santo', 'ES'),
-(9, 'Goiás', 'GO'),
-(10, 'Maranhão', 'MA'),
-(11, 'Minas Gerais', 'MG'),
-(12, 'Mato Grosso do Sul', 'MS'),
-(13, 'Mato Grosso', 'MT'),
-(14, 'Pará', 'PA'),
-(15, 'Paraíba', 'PB'),
-(16, 'Pernambuco', 'PE'),
-(17, 'Piauí', 'PI'),
-(18, 'Paraná', 'PR'),
-(19, 'Rio de Janeiro', 'RJ'),
-(20, 'Rio Grande do Norte', 'RN'),
-(21, 'Rondônia', 'RO'),
-(22, 'Roraima', 'RR'),
-(23, 'Rio Grande do Sul', 'RS'),
-(24, 'Santa Catarina', 'SC'),
-(25, 'Sergipe', 'SE'),
-(26, 'São Paulo', 'SP'),
-(27, 'Tocantins', 'TO');

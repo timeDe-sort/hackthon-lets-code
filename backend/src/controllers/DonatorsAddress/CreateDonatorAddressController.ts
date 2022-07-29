@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { CreateDonatorAddressService } from '../../services/DonatorsAddress/CreateDonatorAddressService'
 
-export default async function CreateDonatorController(req: Request, res: Response) {
+export default async function CreateDonatorAddressController(req: Request, res: Response) {
   const service = new CreateDonatorAddressService();    
   const result = await service.execute(req.body);
 

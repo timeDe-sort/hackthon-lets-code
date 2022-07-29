@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { DeleteDonatorAddressService } from '../../services/DonatorsAddress/DeleteDonatorAddressService'
 
-export default async function DeleteDonatorsController(req: Request, res: Response) {
+export default async function DeleteDonatorsAddressController(req: Request, res: Response) {
   const service = new DeleteDonatorAddressService();    
   const { id } = req.params;
   
