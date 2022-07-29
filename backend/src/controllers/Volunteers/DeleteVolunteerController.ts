@@ -8,5 +8,5 @@ export default async function DeleteVolunteerController(req: Request, res: Respo
 
   if (volunteer instanceof Error) return res.status(400).json(volunteer.message);
 
-  return res.status(202).json('Doador deletado com sucesso!').end;
+  return res.status(202).json('Voluntário deletado com sucesso!').end;
 }

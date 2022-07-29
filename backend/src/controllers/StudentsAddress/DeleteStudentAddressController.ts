@@ -8,5 +8,5 @@ export default async function DeleteStudentAddressController(req: Request, res: 
 
   if (studentAddress instanceof Error) return res.status(400).json(studentAddress.message);
 
-  return res.status(202).json('Doador deletado com sucesso!').end;
+  return res.status(202).json('Endereço deletado com sucesso!').end;
 }

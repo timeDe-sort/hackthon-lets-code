@@ -11,10 +11,11 @@ import CreateDonatorAddressController from "../controllers/DonatorsAddress/Creat
 import DeleteDonatorsAddressController from "../controllers/DonatorsAddress/DeleteDonatorAddressController";
 import GetDonatorAddressController from "../controllers/DonatorsAddress/GetDonatorAddressController";
 import UpdateDonatorAddressController from "../controllers/DonatorsAddress/UpdateDonatorAddressController";
+import CreateServiceCenterController from "../controllers/ServiceCenter/CreateServiceCenterController";
 import DeleteServiceCenterController from "../controllers/ServiceCenter/DeleteServiceCenterController";
 import GetServiceCenterController from "../controllers/ServiceCenter/GetServiceCenterController";
 import UpdateServiceCenterController from "../controllers/ServiceCenter/UpdateServiceCenterController";
-import CreateServiceCenterAddresController from "../controllers/ServiceCenterAddress/CreateServiceCenterAddressController";
+import CreateServiceCenterAddressController from "../controllers/ServiceCenterAddress/CreateServiceCenterAddressController";
 import DeleteServiceCenterAddressController from "../controllers/ServiceCenterAddress/DeleteServiceCenterAddressController";
 import GetServiceCenterAddressController from "../controllers/ServiceCenterAddress/GetServiceCenterAddressController";
 import UpdateServiceCenterAddressController from "../controllers/ServiceCenterAddress/UpdateServiceCenterAddressController";
@@ -53,12 +54,12 @@ routes.delete('/donators-address/:id', DeleteDonatorsAddressController);
 routes.put('/donators-address/:id', UpdateDonatorAddressController);
 
 routes.get('/service-center', GetServiceCenterController);
-routes.post('/service-center', CreateServiceCenterAddresController);
+routes.post('/service-center', CreateServiceCenterController);
 routes.delete('/service-center/:id', DeleteServiceCenterController);
 routes.put('/service-center/:id', UpdateServiceCenterController);
 
 routes.get('/service-center-address', GetServiceCenterAddressController);
-routes.post('/service-center-address', CreateServiceCenterAddresController);
+routes.post('/service-center-address', CreateServiceCenterAddressController);
 routes.delete('/service-center-address/:id', DeleteServiceCenterAddressController);
 routes.put('/service-center-address/:id', UpdateServiceCenterAddressController);
 

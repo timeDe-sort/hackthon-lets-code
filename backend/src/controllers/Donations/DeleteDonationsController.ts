@@ -8,6 +8,6 @@ export default async function DeleteDonationsController(req: Request, res: Respo
 
   if (donation instanceof Error) return res.status(400).json(donation.message);
 
-  return res.status(202).json('Doador deletado com sucesso!').end;
+  return res.status(202).json('Doação deletado com sucesso!').end;
 }
 
