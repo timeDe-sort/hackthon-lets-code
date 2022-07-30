@@ -7,9 +7,6 @@ function LoginOrRegister(props) {
     const { route, navigation } = props
     const params = route.params
     const type = params.type
-
-    console.log(type)
-    console.log(type === 0) 
     return (
         <>
             <SafeAreaView style={styles.backGround}>

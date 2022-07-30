@@ -2,17 +2,19 @@ import { Avatar, Card, IconButton } from 'react-native-paper';
 import * as React from 'react';
 import { Title, Paragraph } from 'react-native-paper';
 import { Button , View , ScrollView, Text, SafeAreaView } from 'react-native';  
+import { styles } from './auxiliar/Styles';
+
 
 function AboutUs(){
 
 
 
     return(
-        <SafeAreaView>
+        <SafeAreaView style={styles.backGround}>
             <Card>
                 <Card.Content>  
                     <View style={{ flexDirection: "row", alignItems: 'center'}}>
-                        <Avatar.Image size={60}></Avatar.Image>
+                        <Avatar.Image size={60} style={styles.avatar} ></Avatar.Image>
                         <Title>Quem somos?</Title>
                     </View>
                     <Paragraph>
@@ -24,7 +26,7 @@ function AboutUs(){
             <Card>
                 <Card.Content>  
                     <View style={{ flexDirection: "row", alignItems: 'center'}}>
-                        <Avatar.Image size={60}></Avatar.Image>
+                        <Avatar.Image size={60} style={styles.avatar}></Avatar.Image>
                         <Title>Quall nossos objetivos?</Title>
                     </View>
                     <Paragraph>

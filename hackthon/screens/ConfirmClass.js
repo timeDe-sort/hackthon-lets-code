@@ -1,11 +1,11 @@
 
-import { List, Card, Title, Paragraph, Avatar } from 'react-native-paper';
-import { View , SafeAreaView,Text ,Pressable } from 'react-native';  
+import { List, Card, Title, Paragraph, Avatar,Button } from 'react-native-paper';
+import { View , SafeAreaView,Text  } from 'react-native';  
 import { styles } from './auxiliar/Styles';
 
-export function TeamManager(props){
-    const { navigation } = props
-    
+export function ConfirmClass(props){
+    const {navigation} = props
+
     return(
         <>
             <SafeAreaView style={styles.backGround}>
@@ -25,7 +25,7 @@ export function TeamManager(props){
                     </Card.Content>
                 </Card>
                 <View style={{ flexDirection: "row", justifyContent: 'center'}}>
-                    <Text style={styles.text}>  Alunos interessados:  </Text>
+                    <Text style={styles.text}>  CONFIRMAR O ALUNO:  </Text>
                 </View>
                 <View style={{width:"80%", marginLeft:"10%"}}>
                     <List.Item
@@ -33,25 +33,26 @@ export function TeamManager(props){
                         title="Joãozinho"
                         description="Disponibilidade: Turno da Tarde"
                         left={props => <List.Icon {...props} icon="folder" />}
-                        right={props => 
-                            <Pressable onPress={() => navigation.navigate('ConfirmClass')}>
-                            <List.Icon {...props} icon="plus-circle" />
-                            </Pressable>
-                        }
                         />
-                    <List.Item
-                        style={styles.listItem}
-                        title="Mariazinha"
-                        description="Disponibilidade: Turno da Manhã"
-                        left={props => <List.Icon {...props} icon="folder" />}
-                        right={props => 
-                            <Pressable>
-                            <List.Icon {...props} icon="plus-circle" />
-                            </Pressable>
-                        }
-                        
-                        />
+
                 </View>
+                <View style={{ flexDirection: "row", justifyContent: 'center'}}>
+                    <Text style={styles.text}>  Para a turma de PAULINHA ?  </Text>
+                </View>
+                <SafeAreaView style={{flexDirection:"row", justifyContent:'space-between'}}>
+                        <View style={styles.buttons}>
+                            <Button color={'#272343'} onPress={() => navigation.navigate('TeamManager')}>
+                            Sim
+                            </Button>
+                        </View>
+
+                        <View style={styles.buttons}>
+                            <Button color={'#272343'}>
+                            Não
+                            </Button>
+                        </View>
+
+                </SafeAreaView>
             </SafeAreaView>
         </>
     

@@ -3,7 +3,7 @@ import { List, Card, Title, Paragraph, Avatar } from 'react-native-paper';
 import { View , SafeAreaView,Text ,Pressable } from 'react-native';  
 import { styles } from './auxiliar/Styles';
 
-export function TeamManager(props){
+export function DonationManager(props){
     const { navigation } = props
     
     return(
@@ -14,42 +14,41 @@ export function TeamManager(props){
                         <View style={{ flexDirection: "row", alignItems: 'center'}}>
                             <Avatar.Image size={60} style={styles.avatar}></Avatar.Image>
                             <Title>
-                                Professora Paulinha
+                                José
                             </Title>
                         </View>
                         <Paragraph>
-                            Matéria: Física Qua e Sex 16h{'\n'}
-                            Dias: Quarta e Sexta{'\n'}
-                            Horário: 16h - 18h {'\n'}
+                            Doador de material escolar para os alunos{'\n'}
                         </Paragraph>
                     </Card.Content>
                 </Card>
                 <View style={{ flexDirection: "row", justifyContent: 'center'}}>
-                    <Text style={styles.text}>  Alunos interessados:  </Text>
+                    <Text style={styles.text}> Itens doados:  </Text>
                 </View>
                 <View style={{width:"80%", marginLeft:"10%"}}>
                     <List.Item
                         style={styles.listItem}
-                        title="Joãozinho"
-                        description="Disponibilidade: Turno da Tarde"
-                        left={props => <List.Icon {...props} icon="folder" />}
-                        right={props => 
-                            <Pressable onPress={() => navigation.navigate('ConfirmClass')}>
-                            <List.Icon {...props} icon="plus-circle" />
-                            </Pressable>
-                        }
+                        title="Materiais disponíveis:"
+                        description="Cadernos, canetas, lápis e borrachas"
+                        left={props => <List.Icon {...props} icon="folder" />}  
                         />
+                </View>
+
+                <View style={{ flexDirection: "row", justifyContent: 'center'}}>
+                    <Text style={styles.text}> Alunos:  </Text>
+                </View>
+
+                <View style={{width:"80%", marginLeft:"10%"}}>
                     <List.Item
                         style={styles.listItem}
-                        title="Mariazinha"
-                        description="Disponibilidade: Turno da Manhã"
+                        title="Joãozinho:"
+                        description="Precisa de : Cadernos"
                         left={props => <List.Icon {...props} icon="folder" />}
                         right={props => 
-                            <Pressable>
+                            <Pressable onPress={() => navigation.navigate('ConfirmDonation')}>
                             <List.Icon {...props} icon="plus-circle" />
                             </Pressable>
                         }
-                        
                         />
                 </View>
             </SafeAreaView>

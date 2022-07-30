@@ -78,13 +78,3 @@ export function VolunteerRegister(props){
     )
 }
 
-
-// export function LoggedScreenVolunteer(props){
-
-
-//     return(
-
-
-//     )
-
-// }

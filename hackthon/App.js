@@ -17,7 +17,9 @@ import Donators from './screens/Donators';
 import AboutUs from './screens/AboutUs';
 import { TeamManager } from './screens/TeamManager';
 import { StudentProfileCenter } from './screens/StudentProfileCenter';
-
+import { ConfirmClass } from './screens/ConfirmClass';
+import { DonationManager } from './screens/DonationManager';
+import { ConfirmDonation } from './screens/ConfirmDonation';
 
 const Stack = createStackNavigator();
 
@@ -40,7 +42,10 @@ function MyStack() {
       <Stack.Screen name="AboutUs" component={AboutUs} />
       <Stack.Screen name="TeamManager" component={TeamManager} />
       <Stack.Screen name="StudentProfileCenter" component={StudentProfileCenter} />
-      
+      <Stack.Screen name="ConfirmClass" component={ConfirmClass} />
+      <Stack.Screen name="DonationManager" component={DonationManager} />
+      <Stack.Screen name="ConfirmDonation" component={ConfirmDonation} />
+
     </Stack.Navigator>
   );
 }

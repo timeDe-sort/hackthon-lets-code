@@ -51,7 +51,6 @@ function TeacherAndClasses(props){
                         </View>
                         <Paragraph>
                             Turma da Física Qua e Sex 16h{'\n'}
-                            5 vagas restantes
                         </Paragraph>
                     </Card.Content>
                 </Card>
