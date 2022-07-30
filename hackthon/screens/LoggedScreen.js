@@ -1,111 +1,125 @@
-import { Button , View , ScrollView, Text, SafeAreaView,TextInput, Pressable} from 'react-native';  
+import {View , ScrollView, Text } from 'react-native';  
 import { Avatar } from 'react-native-paper';
 import Header from './auxiliar/Header';
+import { Button } from 'react-native-paper';
+import { styles } from './auxiliar/Styles';
 
 
-const styles = {
-    borda : {border: '1px solid black'},
-    header : {alignItems: 'center',justifyContent: 'center',backgroundColor: 'aquamarine',display:'flex' },
-    tituloh1 : {fontSize: 30},
-    tituloh2 : {fontSize: 20},
-    BoxForms : {display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid black'},
-    input: {
-      height: 40,
-      margin: 12,
-      borderWidth: 1,
-      padding: 10,
-    },
-    BoxButtons : {
-        display: 'flex',
-        justifyContent: 'center',
-        width : "60%",
-        marginLeft : "20%",
-        marginTop : "1.5rem",
-    },    
-    Buttons : {
-        margin: "10%",
-        height: "30"
-        
-    }
-}
-
-
-function LoogedScreen(props) {
+function LoggedScreen(props) {
     
     const { route,navigation } = props
     const params = route.params
     const type = params.type
     console.log(type)
+    
     return (
         <>
-            <ScrollView>
+            <ScrollView style={styles.backGround} >
                 {
                     <Header></Header>
                 }
-                <View style={{flexDirection:"row" , justifyContent: 'space-around', width: '80%', alignItems: 'center'}}>
+                <View style={{flexDirection:"row" , justifyContent: 'space-between', width: '80%', alignItems: 'center',marginLeft:"10%", marginTop:"1rem"}}>
                     <View style={{flexDirection:"column"}}>
 
                     <Text>NOME:</Text>
                     {(type ===3) &&
                     <Text>Centro: </Text>}
                     </View>
-                    <Avatar.Image size={40}  />
+                    <Avatar.Image size={80}  />
                 </View>
 
 
-                { (type ===0 || type === 1) && // DOADOR E VOLUNTÁRIO
-                    <View style={styles.BoxButtons}>
-                        <View style={styles.Buttons}>
-                            <Button   title= "Perfil" onPress={() => navigation.navigate('Profile', {type: params.type})} />
-                        </View>
-                        <View style={styles.Buttons}>
-                            <Button   title= "Acompanhamento" onPress={() => navigation.navigate('LoginOuRegis')} />
-                        </View>
-                        <View style={styles.Buttons}>
-                            <Button   title= "Sobre nós" onPress={() => navigation.navigate('LoginOuRegis')} />
+                { (type === 1) &&
+                <>
+                    
+                    <View style={styles.boxButtons}>
+                        <View style={styles.buttons}>
+                            <Button   color={'#272343'} onPress={() => navigation.navigate('Profile', {type: 1})}>
+                                Perfil
+                            </Button>
                         </View>
                     </View>
+                    <View style={styles.boxButtons}>
+                        <View style={styles.buttons}>
+                            <Button   color={'#272343'} onPress={() => navigation.navigate('Accompaniment',{type: 1})}>
+                                Acompanhamento
+                            </Button>
+                        </View>
+                    </View>
+
+                </>
                 }
 
-                {(type ===3) && // ALUNO
-                    <View style={styles.BoxButtons}>
-                        <View style={styles.Buttons}>
-                            <Button   title= "Perfil" onPress={() => navigation.navigate('Profile',{type: params.type})} />
+                { (type === 0) &&
+                <>       
+                    <View style={styles.boxButtons}>
+                        <View style={styles.buttons}>
+                            <Button   color={'#272343'} onPress={() => navigation.navigate('Profile',{type: 0})}>
+                                Perfil
+                            </Button>
                         </View>
-                        <View style={styles.Buttons}>
-                            <Button   title= "Aulas" onPress={() => navigation.navigate('LoginOuRegis')} />
+                    </View>
+                    <View style={styles.boxButtons}>
+                        <View style={styles.buttons}>
+                            <Button   color={'#272343'} onPress={() => navigation.navigate('Accompaniment',{type: 0})}>
+                                Acompanhamento
+                            </Button>
                         </View>
-                        <View style={styles.Buttons}>
-                            <Button   title= "Centro" onPress={() => navigation.navigate('LoginOuRegis')} />
+                    </View>
+                </>
+             
+
+                }
+
+                {(type ===3) && 
+                <>
+                
+                    <View style={styles.boxButtons}>
+                        <View style={styles.buttons}>
+                            <Button   color={'#272343'} onPress={() => navigation.navigate('Profile',{type:3})}>
+                                Perfil
+                            </Button>
                         </View>
-                            <View style={styles.Buttons}>
-                        <Button  title= "Sobre nós" onPress={() => navigation.navigate('LoginOuRegis')} />
+                    </View>
+                    <View style={styles.boxButtons}>
+                        <View style={styles.buttons}>
+                            <Button   color={'#272343'} onPress={() => navigation.navigate('Classes',{type:3})}>
+                                Aulas
+                            </Button>
                         </View>
                     </View> 
+
+                </>
+  
                 }
 
                 {(type ===2) &&
-                    <View style={styles.BoxButtons}>
-                        <View style={styles.Buttons}>
-                            <Button   title= "Alunos" onPress={() => navigation.navigate('LoginOuRegis')} />
+                    <View style={styles.boxButtons}>
+                        <View style={styles.buttons}>
+                            <Button   color={'#272343'} onPress={() => navigation.navigate('Students')}>
+                                Alunos
+                            </Button>
                         </View>
-                        <View style={styles.Buttons}>
-                            <Button   title= "Professores e Aulas" onPress={() => navigation.navigate('LoginOuRegis')} />
+                        <View style={styles.buttons}>
+                            <Button   color={'#272343'} onPress={() => navigation.navigate('TeacherAndClasses')}>
+                                Aulas e Professores
+                            </Button>
                         </View>
-                        <View style={styles.Buttons}>
-                            <Button   title= "Doadores" onPress={() => navigation.navigate('LoginOuRegis')} />
+                        <View style={styles.buttons}>
+                            <Button   color={'#272343'} onPress={() => navigation.navigate('Donators')}>
+                                Doações
+                            </Button>
                         </View>
-                            <View style={styles.Buttons}>
-                        <Button  title= "Sobre nós" onPress={() => navigation.navigate('LoginOuRegis')} />
-                        </View>
-                    </View> 
+                     </View> 
                 }
-            {
-                // TAMBÉM IRÁ VIRAR UM COMPONENTE
-                <Text> 
-                    <Text>Referências</Text>
-                </Text>
-            }
+
+                    <View style={styles.boxButtons}>
+                        <View style={styles.buttons}>
+                            <Button   color={'#272343'} onPress={() => navigation.navigate('AboutUs')}>
+                                Sobre nós
+                            </Button>
+                        </View>
+                    </View>
 
             </ScrollView>
         </>
@@ -114,4 +128,4 @@ function LoogedScreen(props) {
 
 }
 
-export default LoogedScreen;
+export default LoggedScreen;

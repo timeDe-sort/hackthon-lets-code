@@ -1,9 +1,8 @@
 import React from 'react';
 import DropDownPicker from 'react-native-dropdown-picker';
-
+import { Text } from 'react-native'
 
 const states = [
-
     {label : "AC" , value : "AC"},
     {label : "AL" , value : "AL"},
     {label : "AP" , value : "AP"},
@@ -35,6 +34,11 @@ const states = [
 
 
 const DistrictDropdown = () => {
+
+    const [open, setOpen] = React.useState(false);
+    const [value, setValue] = React.useState(null);
+    const [items, setItems] = React.useState(states);
+
     return (
     <>
     <Text>UF:</Text>
@@ -46,6 +50,7 @@ const DistrictDropdown = () => {
         setValue={setValue}
         setItems={setItems}
         searchable={true}
+        dropDownDirection="TOP"
         searchTextInputProps={{
             maxLength: 25
         }}

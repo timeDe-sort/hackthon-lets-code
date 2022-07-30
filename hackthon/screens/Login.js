@@ -1,56 +1,49 @@
 import React from 'react';
 
-import { Button , View , ScrollView, Text, SafeAreaView,TextInput } from 'react-native';  
+import { View,ScrollView } from 'react-native';  
 import Header from './auxiliar/Header';
-const styles = {
-  header : {alignItems: 'center', justifyContent: 'center', backgroundColor: 'aquamarine', display:'flex' },
-  titleH1 : {fontSize: 30},
-  titleH2 : {fontSize: 20},
-  boxForms : {display: 'flex', alignItems: 'center', justifyContent: 'center', border: "1px solid black"},
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
-  },
-}
+import { TextInput, Button } from 'react-native-paper';
+import { styles } from './auxiliar/Styles';
+
 
 function Login(props) {
-  const {navigation} = props;
+  const {navigation,route} = props;
+  const params = route.params
+  const type = params.type
 
   const [login,   setLogin] = React.useState("");
   const [password,   setPassword] = React.useState("");
     
   return (
     <>
-      <ScrollView>
-        <Header></Header>
-
+     <ScrollView style={styles.backGround}>
+        <Header ></Header>
         <View style={styles.boxForms}>
-          <Text style={styles.titleH2} className="Login">Login</Text>
+            <View>
+              <TextInput
+                style={styles.textInputLogin}
+                onChangeText={setLogin}
+                value={login}
+                label="Login"
+                />
+              <TextInput
+                style={styles.textInputLogin}
+                onChangeText={setPassword}
+                value={password}
+                secureTextEntry={true}
+                textContentType="password"
+                label="Senha"
+                />
+              </View>
+          <View style={styles.boxButtons}>
+            <View style={styles.buttons}>
+            <Button color={'#272343'} onPress={() => navigation.navigate('LoggedScreen',{type: type})}>
+              Entrar
+            </Button>
+            </View>
+          </View>
 
-          <SafeAreaView>
-            <TextInput
-              style={styles.input}
-              onChangeText={setLogin}
-              value={login}
-            />
-            <TextInput
-              style={styles.input}
-              onChangeText={setPassword}
-              value={password}
-              placeholder="placeholder"
-              secureTextEntry={true}
-              textContentType="password"
-            />
-          </SafeAreaView>
         </View>
-
-        <Button title="Entrar"onPress={() => navigation.navigate('HomeScreen')} />
-
-        <Text style={styles.header}>
-        Referências
-        </Text>
       </ScrollView>
     </>
   );

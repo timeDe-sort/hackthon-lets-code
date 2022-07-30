@@ -1,53 +1,30 @@
-import { Button , View , ScrollView, Text, SafeAreaView, Pressable} from 'react-native';  
-import { Avatar } from 'react-native-paper';
-import { TextInput } from 'react-native-paper';
+import { View , ScrollView, Text} from 'react-native';  
+import { Avatar, Button, TextInput } from 'react-native-paper';
 import Header from './auxiliar/Header';
+import React from 'react';
+import { styles } from './auxiliar/Styles';
 
-const styles = {
-    borda : {border: '1px solid black'},
-    header : {alignItems: 'center',justifyContent: 'center',backgroundColor: 'aquamarine',display:'flex' },
-    tituloh1 : {fontSize: 30},
-    tituloh2 : {fontSize: 20},
-    BoxForms : {display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid black'},
-    input: {
-      height: 40,
-      margin: 12,
-      borderWidth: 1,
-      padding: 10,
-    },
-    BoxButtons : {
-        display: 'flex',
-        justifyContent: 'center',
-        width : "60%",
-        marginLeft : "20%",
-        marginTop : "1.5rem",
-    },    
-    Buttons : {
-        margin: "1rem"
-        
-    },
-    TextInput: {
-        height: "25", 
-        marginBottom: "1rem" 
 
-    }
-}
 
 
 function Profile(props) {
     
-    const { navigation } = props
+    const { navigation, route } = props
+    const params = route.params
+    const type = params.type
+    const [change, setChange] = React.useState(true);
+
     return (
         <>
-            <ScrollView>
+            <ScrollView style={styles.backGround}>
                 <Header></Header>
 
 
                 <View style={{flexDirection:"Column" , justifyContent: 'space-around', width: '100%', alignItems: 'center'}}>
 
-                    <Avatar.Image size={60} style={styles.Buttons}/>
+                    <Avatar.Image size={60} />
 
-                    <Text style={styles.Buttons}>( NOME )</Text>  
+                    <Text >( NOME )</Text>  
 
                 </View>
                 
@@ -56,40 +33,42 @@ function Profile(props) {
                         <View style={{flexDirection:'row', justifyContent: 'space-evenly' }}>
 
                             <TextInput
-                            style={styles.TextInput}
+                            style={styles.textInput}
                             label="Email"
                             value={'email@dominio.com'}
+                            disabled={change}
                             />
                             
                             <TextInput
-                            style={styles.TextInput}
+                            style={styles.textInput}
                             label="Cidade"
                             value={'Fortaleza'}
+                            disabled={change}
                             />
                         </View> 
                         <View style={{flexDirection:'row', justifyContent: 'space-evenly' }}>
                             <TextInput
-                            style={styles.TextInput}
+                            style={styles.textInput}
                             label="UF"
                             value={'CE'}
-                            disabled={true}
+                            disabled={change}
                             />
 
                             <TextInput
-                            style={styles.TextInput}
+                            style={styles.textInput}
                             label="CPF"
                             value={'000.000.000-11'}
-                            disabled={true}
+                            disabled={change}
                             />
                         </View>
                         
                         <View style={{flexDirection:'row', justifyContent: 'space-evenly' }}>
 
                             <TextInput
-                            style={styles.TextInput}
+                            style={styles.textInput}
                             label="CEP"
                             value={'00070000'}
-                            disabled={true}
+                            disabled={change}
                             />
 
                         </View>
@@ -97,92 +76,99 @@ function Profile(props) {
                         { (type===0) &&// DOADOR
                             <View style={{flexDirection:'row', justifyContent: 'space-evenly' }}>
                             <TextInput
-                                style={styles.TextInput}
+                                style={styles.textInput}
                                 label="Profissão"
                                 value={'Professor'}
-                                disabled={true}
+                                disabled={change}
                             />
                             <TextInput
-                            style={styles.TextInput}
+                            style={styles.textInput}
                             label="Categoria de ajuda:"
                             value={'Material e financeira'}
-                            disabled={true}
+                            disabled={change}
                             />
 
 
                         </View>
                         }
                         { (type===1) && // VOLUNTÁRIO
-                            <View style={{flexDirection:'row', justifyContent: 'space-evenly' }}>
+                            <>
+                            
+                                <View style={{flexDirection:'row', justifyContent: 'space-evenly' }}>
 
-                                <TextInput
-                                style={styles.TextInput}
-                                label="Disciplina Oferecida"
-                                value={'Matemática'}
-                                disabled={true}
-                                />
-                                <TextInput
-                                style={styles.TextInput}
-                                label="Universidade"
-                                value={'UF'}
-                                disabled={true}
-                                />
-                                <TextInput
-                                style={styles.TextInput}
-                                label="Periodo"
-                                value={'Matutino'}
-                                disabled={true}
-                                />
+                                    <TextInput
+                                    style={styles.textInput}
+                                    label="Disciplina Oferecida"
+                                    value={'Matemática'}
+                                    disabled={change}
+                                    />
+                                    <TextInput
+                                    style={styles.textInput}
+                                    label="Universidade"
+                                    value={'UF'}
+                                    disabled={change}
+                                    />
+                                </View>
+                                <View style={{flexDirection:'row', justifyContent: 'space-evenly' }}>
+                                    <TextInput
+                                    style={styles.textInput}
+                                    label="Periodo"
+                                    value={'Matutino'}
+                                    disabled={change}
+                                    />
+                                </View>
 
-                            </View>
+                            </>
+
+                            
                         }
-                        { (type === 2) &&// aluno
+                        { (type === 3) &&// aluno
                             <>
                             <View style={{flexDirection:'row', justifyContent: 'space-evenly' }}>
 
                                 <TextInput
-                                style={styles.TextInput}
+                                style={styles.textInput}
                                 label="Escola"
                                 value={'Escola de algum lugar'}
-                                disabled={true}
+                                disabled={change}
                                 />
                                 <TextInput
-                                style={styles.TextInput}
+                                style={styles.textInput}
                                 label="Ano/Serie"
                                 value={'6 ano/5ª Serie'}
-                                disabled={true}
+                                disabled={change}
                                 />
     
                             </View>
                             <View style={{flexDirection:'row', justifyContent: 'space-evenly' }}>
 
                                 <TextInput
-                                style={styles.TextInput}
+                                style={styles.textInput}
                                 label="Categora de ajuda"
-                                value={'Escola de algum lugar'}
-                                disabled={true}
+                                value={'Material'}
+                                disabled={change}
                                 />
                                 <TextInput
-                                style={styles.TextInput}
+                                style={styles.textInput}
                                 label="Período de estudo"
                                 value={'Matutino'}
-                                disabled={true}
+                                disabled={change}
                                 />
 
                             </View>
                             <View style={{flexDirection:'row', justifyContent: 'space-evenly' }}>
 
                                 <TextInput
-                                style={styles.TextInput}
+                                style={styles.textInput}
                                 label="Nome da Mãe"
                                 value={'Fulana'}
-                                disabled={true}
+                                disabled={change}
                                 />
                                 <TextInput
-                                style={styles.TextInput}
+                                style={styles.textInput}
                                 label="Cadastro único"
                                 value={'8239371'}
-                                disabled={true}
+                                disabled={change}
                                 />
 
                             </View>
@@ -195,12 +181,27 @@ function Profile(props) {
                 </View>
 
 
-
-                <Text> 
-                    <Text>Referências</Text>
-                </Text>
-
-
+                { change ?
+                    <View style={styles.boxButtons}>
+                        <View style={styles.buttons}>
+                            <Button
+                                color={'#272343'}
+                                onPress={() =>setChange(false)}>
+                                    Alterar
+                            </Button>
+                        </View>
+                    </View>
+                :
+                    <View style={styles.boxButtons}>
+                        <View style={styles.buttons}>
+                            <Button
+                            color={'#272343'}
+                            onPress={() =>setChange(true)}>
+                                Ok
+                            </Button>
+                        </View>
+                    </View>
+                }
             </ScrollView>
         </>
 

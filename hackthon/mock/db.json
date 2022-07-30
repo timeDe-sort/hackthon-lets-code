@@ -1,0 +1,50 @@
+{
+    "Donators" : [
+        {
+            "name" : "José",
+            "donate" : "caderno,caneta,lapis,borracha"
+        },
+        {
+            "name" : "Rebecca",
+            "donate" : "Auxilio Financeiro"
+        }
+    ],
+
+    "Students" : [
+        {
+            "name" : "Joãozinho",
+            "helpMaterial" : ["caderno"],
+            "helpFinancial" : "",
+            "Disponibilidade": "turno da tarde",
+            "aulas" : "redação"
+        },
+        {
+            "name" : "Mariazinha",
+            "helpMaterial" : ["caneta"],
+            "helpFinancial": "transporte",
+            "Disponibilidade": "turno da manhã",
+            "Aulas": "matemática"
+        }
+
+    ],
+
+    "Volunteers": [
+        {
+            "name": "Pedrinho",
+            "materia" : "matemática",
+            "dias" : "quarta e sexta"
+        },
+        {
+            "name": "Rebecca",
+            "materia" : "redação",
+            "dias" : "segunda e quarta"
+        }
+        ,
+        {
+            "name": "Paulinha",
+            "materia" : "física",
+            "dias" : "quarta e sexta"
+        }
+    ]
+
+}
