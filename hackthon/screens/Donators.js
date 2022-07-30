@@ -15,7 +15,6 @@ function Donators(props){
                 <View style={{ flexDirection: "row", justifyContent: 'center'}}>
                     <Text style={styles.text}>  Doações Pendentes:  </Text>
                 </View>
-            
                 <Card style={styles.card}>
                     <Card.Content>  
                         <View style={{ flexDirection: "row", alignItems: 'center'}}>
