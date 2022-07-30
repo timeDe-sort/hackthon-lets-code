@@ -1,0 +1,186 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model ServiceCenter {
+  id Int @id @default(autoincrement())
+  name String
+  cnpj String @unique
+  email String @unique
+  password String
+  created_at DateTime @default(now())
+  student Student[]
+  volunteer Volunteer[]
+  service_center_address ServiceCenterAddress[]
+  donation Donation[]
+
+  @@map("service_centers")
+}
+
+model Donator {
+  id Int @id @default(autoincrement())
+  name String
+  document String @unique
+  email String @unique
+  password String
+  created_at DateTime @default(now())
+  donator_address DonatorAddress[]
+  donation Donation[]
+
+  @@map("donators")
+}
+
+model State {
+  id Int @id @default(autoincrement())
+  name String
+  city City[]
+
+  @@map("states")
+}
+
+model City {
+  id Int @id @default(autoincrement())
+  name String
+  state State @relation(fields: [state_id], references: [id])
+  state_id Int
+  service_center_address ServiceCenterAddress[]
+  donator_address DonatorAddress[]
+  student_address StudentAddress[]
+  volunteer_address VolunteerAddress[]
+
+  @@map("cities")
+}
+
+model Student {
+  id Int @id @default(autoincrement())
+  fullname String
+  cpf String @unique
+  birth_date DateTime
+  email String @unique
+  password String
+  mother_name String
+  family_code String
+  service_center ServiceCenter @relation(fields: [service_center_id], references: [id])
+  service_center_id Int
+  created_at DateTime @default(now())
+  period Period 
+  student_address StudentAddress[]
+  donation Donation[]
+
+  @@map("students")
+}
+
+model Volunteer {
+  id Int @id @default(autoincrement())
+  fullname String
+  cpf String @unique
+  birth_date DateTime
+  university String
+  degree String
+  email String @unique
+  password String
+  subject String
+  observation String
+  service_center ServiceCenter @relation(fields: [service_center_id], references: [id])
+  service_center_id Int
+  created_at DateTime @default(now())
+  period String[]
+  volunteer_address VolunteerAddress[]
+
+  @@map("volunteers")
+}
+
+model ServiceCenterAddress {
+  id Int @id @default(autoincrement())
+  service_center ServiceCenter @relation(fields: [service_center_id], references: [id])
+  service_center_id Int
+  street String
+  number String @unique
+  address_complement DateTime
+  city City @relation(fields: [city_id], references: [id])
+  city_id Int
+  created_at DateTime @default(now())
+
+  @@map("service_center_address")
+}
+
+model DonatorAddress {
+  id Int @id @default(autoincrement())
+  donator Donator @relation(fields: [donator_id], references: [id])
+  donator_id Int
+  street String
+  number String @unique
+  address_complement DateTime
+  city City @relation(fields: [city_id], references: [id])
+  city_id Int
+  created_at DateTime @default(now())
+
+  @@map("donator_address")
+}
+
+model StudentAddress {
+  id Int @id @default(autoincrement())
+  student Student @relation(fields: [student_id], references: [id])
+  student_id Int
+  street String
+  number String @unique
+  address_complement DateTime
+  city City @relation(fields: [city_id], references: [id])
+  city_id Int
+  created_at DateTime @default(now())
+
+  @@map("student_address")
+}
+
+model VolunteerAddress {
+  id Int @id @default(autoincrement())
+  volunteers Volunteer @relation(fields: [volunteer_id], references: [id])
+  volunteer_id Int
+  street String
+  number String @unique
+  address_complement DateTime
+  city City @relation(fields: [city_id], references: [id])
+  city_id Int
+  created_at DateTime @default(now())
+
+  @@map("volunteer_address")
+}
+
+model Donation {
+  id Int @id @default(autoincrement())
+  donator Donator @relation(fields: [donator_id], references: [id])
+  donator_id Int
+  student Student @relation(fields: [student_id], references: [id])
+  student_id Int
+  service_center ServiceCenter @relation(fields: [service_center_id], references: [id])
+  service_center_id Int
+  support_type SupportType
+  created_at DateTime @default(now())
+
+  @@map("donations")
+}
+
+enum SchoolYear {
+  FIRST_YEAR
+  SECOND_YEAR
+  THIRD_YEAR
+}
+
+enum SupportType {
+  FINANCIAL
+  MATERIAL
+}
+
+enum Period {
+  MORNING
+  AFTERNOON
+  FULLTIME
+}
