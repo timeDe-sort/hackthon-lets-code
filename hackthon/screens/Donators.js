@@ -18,10 +18,10 @@ function Donators(props){
                 <Card style={styles.card}>
                     <Card.Content>  
                         <View style={{ flexDirection: "row", alignItems: 'center'}}>
-                            <Avatar.Image size={60} style={styles.avatar}></Avatar.Image>
-                            <Pressable onPress={() => navigation.navigate('DonationManager')}>
+                            <Avatar.Image size={60} style={styles.avatar} source={require('../img/Rogerio.jpg')}></Avatar.Image>
+                            <Pressable onPress={() => navigation.navigate('DonationManager', {atribuido: false})}>
                                     <Title>
-                                    Doador José
+                                    Doador Rogério
                                     </Title>
                                 </Pressable>
                         </View>
@@ -35,8 +35,8 @@ function Donators(props){
                 <Card style={styles.card}>
                     <Card.Content>  
                         <View style={{ flexDirection: "row", alignItems: 'center'}}>
-                            <Avatar.Image size={60} style={styles.avatar}></Avatar.Image>
-                            <Title>Doadora Rebecca</Title>
+                            <Avatar.Image size={60} style={styles.avatar} source={require('../img/Clara.jpg')}></Avatar.Image>
+                            <Title>Doadora Clara</Title>
                         </View>
                         <Paragraph>
                             Doou auxilio financeiro para os alunos {'\n'}

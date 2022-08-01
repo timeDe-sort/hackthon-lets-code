@@ -12,14 +12,14 @@ export function ConfirmClass(props){
                 <Card style={styles.card}>
                     <Card.Content>  
                         <View style={{ flexDirection: "row", alignItems: 'center'}}>
-                            <Avatar.Image size={60} style={styles.avatar}></Avatar.Image>
+                            <Avatar.Image size={60} style={styles.avatar} source={require('../img/professoraPaulinha.jpg')}></Avatar.Image>
                             <Title>
-                                Professora Paulinha
+                                Professora Paula
                             </Title>
                         </View>
                         <Paragraph>
-                            Matéria: Física Qua e Sex 16h{'\n'}
-                            Dias: Quarta e Sexta{'\n'}
+                            Matéria: Física Ter e Sex 16h{'\n'}
+                            Dias: Terça e Sexta{'\n'}
                             Horário: 16h - 18h {'\n'}
                         </Paragraph>
                     </Card.Content>
@@ -32,16 +32,15 @@ export function ConfirmClass(props){
                         style={styles.listItem}
                         title="Joãozinho"
                         description="Disponibilidade: Turno da Tarde"
-                        left={props => <List.Icon {...props} icon="folder" />}
                         />
 
                 </View>
                 <View style={{ flexDirection: "row", justifyContent: 'center'}}>
-                    <Text style={styles.text}>  Para a turma de PAULINHA ?  </Text>
+                    <Text style={styles.text}>  Para a turma de Paula?  </Text>
                 </View>
                 <SafeAreaView style={{flexDirection:"row", justifyContent:'space-between'}}>
                         <View style={styles.buttons}>
-                            <Button color={'#272343'} onPress={() => navigation.navigate('TeamManager')}>
+                            <Button color={'#272343'} onPress={() => navigation.navigate('TeamManager', {atribuido: true})}>
                             Sim
                             </Button>
                         </View>

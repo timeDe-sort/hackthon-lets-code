@@ -18,7 +18,7 @@ function AboutUs(){
                         <Title>Quem somos?</Title>
                     </View>
                     <Paragraph>
-                        Somos um grupo de 3 pessoas formado por Ana Clara, Brunha Luchini e Lincoln Rodrigo {'\n'}
+                        Somos um grupo de 3 pessoas formado por Ana Clara, Bruna Luchini e Lincoln Rodrigo {'\n'}
                         E estamos participando do Hackathon da Let's Code, após o final do curso Vem ser Tech - Ifood   
                     </Paragraph>
                 </Card.Content>

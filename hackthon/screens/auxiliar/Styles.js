@@ -6,12 +6,12 @@ export const styles = {
         justifyContent: 'center',
         width : "60%",
         marginLeft : "20%",
-        marginTop : "1.5rem",
+        marginTop : "1.rem",
     },
     buttons : {
         margin: "10%",
         height: "30",
-        backgroundColor: "#ffd803",
+        backgroundColor: "#F8CF2C",
         borderRadius: "20px"
     },
     textInput: {
@@ -20,7 +20,7 @@ export const styles = {
 
     },
     backGround: {
-        backgroundColor: "#e3f6f5",
+        backgroundColor: "#252827",
         height: "100%"
     },
     boxForms : { 
@@ -34,14 +34,19 @@ export const styles = {
         marginTop: "1rem"
     },
     card: {
+        marginTop: '10%',
         marginLeft: "10%",
         marginRight: "10%",
-        marginBottom: "1rem"
+        backgroundColor: 'whitesmoke'
     },
     text: {
         margin: "1rem",
         backgroundColor: "#ffd803",
-        borderRadius: "20px"
+        borderRadius: "10px",
+        padding: '5px',
+        textTransform: 'uppercase',
+        fontWeight: 600,
+        // color: '#252827'
 
     },
     avatar: {
@@ -50,7 +55,11 @@ export const styles = {
     listItem: {
         justifyContent:'flex-start',
         alignItem:'center',
+        marginBottom: '5%',
         border: "0.00001px solid gray",
+        backgroundColor: 'whitesmoke',
+        borderBottomLeftRadius: 10,
+        borderTopRightRadius: 10
     }
  
 }

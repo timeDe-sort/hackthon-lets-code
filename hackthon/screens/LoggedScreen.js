@@ -20,16 +20,39 @@ function LoggedScreen(props) {
                 }
                 <View style={{flexDirection:"row" , justifyContent: 'space-between', width: '80%', alignItems: 'center',marginLeft:"10%", marginTop:"1rem"}}>
                     <View style={{flexDirection:"column"}}>
-
-                    <Text>NOME:</Text>
-                    {(type ===3) &&
-                    <Text>Centro: </Text>}
+                    {(type === 3) && // ALUNO
+                    <>
+                    <Text>Joãozinho</Text>
+                    <Text> Centro: Demócrito rocha</Text>
+                    </>
+                    }
+                    {(type === 1) && // VOLUNTARIO
+                    <>
+                    <Text>Paulinha</Text>
+                    </>
+                    }
+                    {(type === 0) && // VOLUNTARIO
+                    <>
+                    <Text style={{
+                        fontSize: "30px"
+                    }}>Rogério</Text>
+                    </>
+                    }
+                    {(type === 2) && // Centro
+                    <>
+                    <Text style={{
+                        fontSize: "30px",
+                        color: "white"
+                    }}>
+                        Escola Estadual Dona Maria</Text>
+                    </>
+                    }
                     </View>
-                    <Avatar.Image size={80}  />
+                    <Avatar.Image size={80} source={require('../img/colegio.jpg')} />
                 </View>
 
 
-                { (type === 1) &&
+                { (type === 1) && // Professor
                 <>
                     
                     <View style={styles.boxButtons}>
@@ -50,7 +73,7 @@ function LoggedScreen(props) {
                 </>
                 }
 
-                { (type === 0) &&
+                { (type === 0) && // DOADOR
                 <>       
                     <View style={styles.boxButtons}>
                         <View style={styles.buttons}>
@@ -93,7 +116,7 @@ function LoggedScreen(props) {
   
                 }
 
-                {(type ===2) &&
+                {(type ===2) && //centro
                     <View style={styles.boxButtons}>
                         <View style={styles.buttons}>
                             <Button   color={'#272343'} onPress={() => navigation.navigate('Students')}>

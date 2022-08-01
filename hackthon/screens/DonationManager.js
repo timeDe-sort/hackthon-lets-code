@@ -4,7 +4,9 @@ import { View , SafeAreaView,Text ,Pressable } from 'react-native';
 import { styles } from './auxiliar/Styles';
 
 export function DonationManager(props){
-    const { navigation } = props
+    const { navigation, route } = props
+    const params = route.params
+
     
     return(
         <>
@@ -12,9 +14,9 @@ export function DonationManager(props){
                 <Card style={styles.card}>
                     <Card.Content>  
                         <View style={{ flexDirection: "row", alignItems: 'center'}}>
-                            <Avatar.Image size={60} style={styles.avatar}></Avatar.Image>
+                            <Avatar.Image size={60} style={styles.avatar} source={require('../img/Rogerio.jpg')}></Avatar.Image>
                             <Title>
-                                José
+                                Rogério
                             </Title>
                         </View>
                         <Paragraph>
@@ -29,8 +31,7 @@ export function DonationManager(props){
                     <List.Item
                         style={styles.listItem}
                         title="Materiais disponíveis:"
-                        description="Cadernos, canetas, lápis e borrachas"
-                        left={props => <List.Icon {...props} icon="folder" />}  
+                        description="Cadernos, canetas, lápis e borrachas"  
                         />
                 </View>
 
@@ -39,17 +40,19 @@ export function DonationManager(props){
                 </View>
 
                 <View style={{width:"80%", marginLeft:"10%"}}>
-                    <List.Item
+                    {
+                        (!params.atribuido) &&
+                        <List.Item
                         style={styles.listItem}
                         title="Joãozinho:"
-                        description="Precisa de : Cadernos"
-                        left={props => <List.Icon {...props} icon="folder" />}
+                        description="Precisa de: Caneta e borracha"
                         right={props => 
                             <Pressable onPress={() => navigation.navigate('ConfirmDonation')}>
                             <List.Icon {...props} icon="plus-circle" />
                             </Pressable>
                         }
                         />
+                    }
                 </View>
             </SafeAreaView>
         </>

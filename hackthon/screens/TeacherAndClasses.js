@@ -15,8 +15,8 @@ function TeacherAndClasses(props){
                 <Card style={styles.card}>
                     <Card.Content>  
                         <View style={{ flexDirection: "row", alignItems: 'center'}}>
-                            <Avatar.Image size={60}  style={styles.avatar}></Avatar.Image>
-                            <Title>Professor Pedrinho</Title>
+                            <Avatar.Image size={60}  style={styles.avatar} source={require('../img/ProfessorPedrinho.jpg')}></Avatar.Image>
+                            <Title>Professor Pedro</Title>
                         </View>
                         <Paragraph>
                             Turma da Matemática Qua e Sex{'\n'}
@@ -26,7 +26,7 @@ function TeacherAndClasses(props){
                 <Card style={styles.card}>
                     <Card.Content>  
                         <View style={{ flexDirection: "row", alignItems: 'center'}}>
-                            <Avatar.Image size={60}  style={styles.avatar}></Avatar.Image>
+                            <Avatar.Image size={60}  style={styles.avatar} source={require('../img/ProfessoraRebecca.jpg')}></Avatar.Image>
                             <Title>Professora Rebecca</Title>
                         </View>
                         <Paragraph>
@@ -42,15 +42,15 @@ function TeacherAndClasses(props){
                 <Card style={styles.card}>
                     <Card.Content>  
                         <View style={{ flexDirection: "row", alignItems: 'center'}}>
-                            <Avatar.Image size={60} style={styles.avatar}></Avatar.Image>
-                                <Pressable onPress={() => navigation.navigate('TeamManager')}>
+                            <Avatar.Image size={60} style={styles.avatar} source={require('../img/professoraPaulinha.jpg')}></Avatar.Image>
+                                <Pressable onPress={() => navigation.navigate('TeamManager', {atribuido : false})}>
                                     <Title>
-                                        Professora Paulinha
+                                        Professora Paula
                                     </Title>
                                 </Pressable>
                         </View>
                         <Paragraph>
-                            Turma da Física Qua e Sex 16h{'\n'}
+                            Turma da Física Ter e Sex 16h{'\n'}
                         </Paragraph>
                     </Card.Content>
                 </Card>

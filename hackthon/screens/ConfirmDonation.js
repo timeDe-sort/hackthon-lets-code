@@ -12,9 +12,9 @@ export function ConfirmDonation(props){
                 <Card style={styles.card}>
                     <Card.Content>  
                         <View style={{ flexDirection: "row", alignItems: 'center'}}>
-                            <Avatar.Image size={60} style={styles.avatar}></Avatar.Image>
+                            <Avatar.Image size={60} style={styles.avatar} source={require('../img/Rogerio.jpg')}></Avatar.Image>
                             <Title>
-                            José
+                            Rogério
                             </Title>
                         </View>
                         <Paragraph>
@@ -30,8 +30,7 @@ export function ConfirmDonation(props){
                     <List.Item
                         style={styles.listItem}
                         title="Joãozinho"
-                        description="Precisa de : Cadernos"
-                        left={props => <List.Icon {...props} icon="folder" />}
+                        description="Precisa de: Caneta e borracha"
                         />
 
                 </View>
@@ -40,7 +39,7 @@ export function ConfirmDonation(props){
                 </View>
                 <SafeAreaView style={{flexDirection:"row", justifyContent:'space-between'}}>
                         <View style={styles.buttons}>
-                            <Button color={'#272343'} onPress={() => navigation.navigate('DonationManager')}>
+                            <Button color={'#272343'} onPress={() => navigation.navigate('DonationManager', {atribuido: true})}>
                             Sim
                             </Button>
                         </View>

@@ -23,7 +23,10 @@ function Profile(props) {
                 <View style={{flexDirection:"Column" , justifyContent: 'space-around', width: '100%', alignItems: 'center'}}>
 
                     <Avatar.Image size={60} />
-
+                    {
+                        (type === 3) &&
+                        <Text >( Joãozinho )</Text>
+                    }
                     <Text >( NOME )</Text>  
 
                 </View>
@@ -134,8 +137,8 @@ function Profile(props) {
                                 />
                                 <TextInput
                                 style={styles.textInput}
-                                label="Ano/Serie"
-                                value={'6 ano/5ª Serie'}
+                                label="Ano"
+                                value={'1 ano Ensino médio'}
                                 disabled={change}
                                 />
     

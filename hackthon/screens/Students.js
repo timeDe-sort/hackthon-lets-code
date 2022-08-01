@@ -13,21 +13,21 @@ export function Students(props){
             <Card style={styles.card}>
                 <Card.Content>  
                     <View style={{ flexDirection: "row", alignItems: 'center'}}>
-                        <Avatar.Image size={60} style={styles.avatar}></Avatar.Image>
+                        <Avatar.Image size={60} style={styles.avatar} source={require('../img/joaozinho.jpg')}></Avatar.Image>
                             <Pressable onPress={() => navigation.navigate('StudentProfileCenter')}>
                                 <Title>Aluno Joãozinho</Title>
                             </Pressable>
                     </View>
                     <Paragraph>
                         Turma da Matemática Ter e Qui 14h{'\n'}
-                        Recebeu Material Escolar
+                        Precisa de material escolar
                     </Paragraph>
                 </Card.Content>
             </Card>
             <Card style={styles.card}>
                 <Card.Content>  
                     <View style={{ flexDirection: "row", alignItems: 'center'}}>
-                        <Avatar.Image size={60} style={styles.avatar}></Avatar.Image>
+                        <Avatar.Image size={60} style={styles.avatar} source={require('../img/mariazinha.jpg')}></Avatar.Image>
                         <Title>Aluna Mariazinha</Title>
                     </View>
                     <Paragraph>

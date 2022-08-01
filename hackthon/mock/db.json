@@ -13,7 +13,7 @@
     "Students" : [
         {
             "name" : "Joãozinho",
-            "helpMaterial" : ["caderno"],
+            "helpMaterial" : ["caderno","caneta"],
             "helpFinancial" : "",
             "Disponibilidade": "turno da tarde",
             "aulas" : "redação"

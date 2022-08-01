@@ -1,0 +1,18 @@
+
+------------- Vídeo 1 ------------- 
+Temos aqui uma demonstração da principal ação do aplicativo, que é a do Centro
+Do ponto de vista do Centro, que no caso é a Escola Estadual Dona Maria.
+Temos a tela de alunos, que nela tem uma lista com os alunos ligados ao centro
+E ao clicar no aluno podemos ver as Ajudas que o aluno está precisando.
+
+------------- Vídeo 2 -------------
+Outra opção para o Centro é a de aulas e Professores, na qual conseguimos
+ver as aulas do dia e turmas que estão com vagas e aqui temos uma turma de física
+com vagas, a da professora Paula. Como joãozinho tem o pedido de aulas dessa matéria
+vamos conectar ele com essa turma!
+
+------------- Vídeo 3 ------------- 
+Além dos professores, temos as doações, que ao clicar podemos ver uma lista de doadores
+como o rogério e a clara, rogério doou material escolar e a clara está disposta a dar
+algum auxílio financeiro par um aluno que pedir 
+
